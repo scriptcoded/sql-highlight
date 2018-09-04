@@ -41,7 +41,7 @@ const highlighter = new Highlight({
   html: true
 })
 
-document.body.innerHTML += highlighter.highlight("SELECT `id`, `username` FROM `users` WHERE `email` = 'test@example.com'"))
+document.body.innerHTML += highlighter.highlight("SELECT `id`, `username` FROM `users` WHERE `email` = 'test@example.com'")
 ```
 
 **Output:**
@@ -63,7 +63,7 @@ Options may be passed to the constructor while instantiating the `Highlighter` c
 
 | Option | Value | Default | Description |
 | --- | --- | --- | --- |
-| html | `boolean` | `true` | Set to true to render HTML instead of Unicode.
+| html | `boolean` | `false` | Set to true to render HTML instead of Unicode.
 | classPrefix | `string` | `'sql-hl-'` | Prefix to prepend to classes for HTML span-tags. Is appended with entity name.
 | colors | `Object` | _See below_* | What color codes to use for Unicode rendering.
 
