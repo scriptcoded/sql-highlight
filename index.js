@@ -51,9 +51,6 @@ module.exports = class Highlighter {
       bracket: /([()])/g
     }
 
-    // Remove 'Executing (default):' message
-    newText = newText.replace(/Executing \(default\): /g, '')
-
     for (let key in rules) {
       let rule = rules[key]
       let match = rule
@@ -72,7 +69,6 @@ module.exports = class Highlighter {
         replacer = this.htmlPattern.replace('{0}', key)
       }
       newText = newText.replace(match, pattern.replace('{0}', replacer))
-      console.log(newText + '\n\n')
     }
 
     let replacer = !this.options.html

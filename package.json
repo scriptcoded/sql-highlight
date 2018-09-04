@@ -1,6 +1,6 @@
 {
-  "name": "seq-highlight",
-  "version": "2.1.0",
+  "name": "sql-highlight",
+  "version": "2.1.1",
   "description": "A simple and lightweight syntax highlighting library for SQL",
   "main": "index.js",
   "repository": {
