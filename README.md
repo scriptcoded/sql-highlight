@@ -41,7 +41,7 @@ const highlighter = new Highlight({
   html: true
 })
 
-document.body.innerHTML += highlighter.highlight("SELECT `id`, `username` FROM `users` WHERE `email` = 'test@example.com'"))
+document.body.innerHTML += highlighter.highlight("SELECT `id`, `username` FROM `users` WHERE `email` = 'test@example.com'")
 ```
 
 **Output:**
