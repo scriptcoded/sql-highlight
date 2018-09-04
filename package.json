@@ -1,0 +1,24 @@
+{
+  "name": "seq-highlight",
+  "version": "2.1.0",
+  "description": "A simple and lightweight syntax highlighting library for SQL",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scriptcoded/sql-highlight.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sql",
+    "syntax",
+    "highlight",
+    "highlighter"
+  ],
+  "author": "Malcolm Nihlén <malcolm.nihlen@gmail.com>",
+  "contributors": [
+    "pomahtuk"
+  ],
+  "license": "MIT"
+}
