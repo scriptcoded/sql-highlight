@@ -5,28 +5,34 @@
 [![Downloads Stats][npm-downloads]][npm-url]
 
 ## What's it all about?
-SQL Highlight is a small package that highlights SQL queries. It can output to both the terminal with Unicode escape sequences, as well as to normal HTML
+SQL Highlight is a small package that highlights SQL queries. It can output to
+both the terminal with Unicode escape sequences, as well as to normal HTML. Oh,
+and there are no external dependencies 😉
 
 ## Installation
 
-Install via Yarn (recommended):
+Install via Yarn:
 ```bash
-yarn add sql-highlight -D
+yarn add sql-highlight
 ```
 Install via NPM:
 ```bash
-npm install sql-highlight --save-dev
+npm install sql-highlight
 ```
 
 ## Usage
-Note that we're using ES6 import statements here. Usage with `require` works just as well.
+> Note that we're using ES6 import statements here. Usage with `require` works
+> just as well.
 
 **In its most basic form:**
-```javascript
-import Highlight from 'sql-highlight'
-const highlighter = new Highlight()
+```js
+import { highlight } from 'sql-highlight'
 
-console.log(highlighter.highlight("SELECT `id`, `username` FROM `users` WHERE `email` = 'test@example.com'"))
+const sqlString = "SELECT `id`, `username` FROM `users` WHERE `email` = 'test@example.com'"
+
+const highlighted = highlight(sqlString)
+
+console.log(highlighted)
 ```
 
 **Output:**
@@ -35,13 +41,16 @@ console.log(highlighter.highlight("SELECT `id`, `username` FROM `users` WHERE `e
 
 **HTML mode:**
 
-```javascript
-import Highlight from 'sql-highlight'
-const highlighter = new Highlight({
+```js
+import { highlight } from 'sql-highlight'
+
+const sqlString = "SELECT `id`, `username` FROM `users` WHERE `email` = 'test@example.com'"
+
+const highlighted = highlight(sqlString, {
   html: true
 })
 
-document.body.innerHTML += highlighter.highlight("SELECT `id`, `username` FROM `users` WHERE `email` = 'test@example.com'")
+document.body.innerHTML += highlighted
 ```
 
 **Output:**
@@ -59,7 +68,7 @@ document.body.innerHTML += highlighter.highlight("SELECT `id`, `username` FROM `
 ```
 
 ## Options
-Options may be passed to the constructor while instantiating the `Highlighter` class.
+The following options may be passed to the `highlight` function.
 
 | Option | Value | Default | Description |
 | --- | --- | --- | --- |
@@ -68,7 +77,7 @@ Options may be passed to the constructor while instantiating the `Highlighter` c
 | colors | `Object` | _See below_* | What color codes to use for Unicode rendering.
 
 \* `colors` option default value
-```javascript
+```js
 {
   keyword: '\x1b[35m',  // SQL reserved keywords
   function: '\x1b[31m', // Functions
@@ -96,8 +105,14 @@ Distributed under the MIT licence. See `LICENCE` for more information.
 https://github.com/scriptcoded
 
 ## Disclaimer
-This was initially a fork from https://github.com/pomahtuk/sequilize-highlight. The repo wasn't being
-updated, NPM wasn't serving the latest version and there was a severe memory leak. Though the latest version now exists on NPM, issues still persist. This repo serves to address those problems, as well as providing a cleaner interface that's not bound to Sequelize.
+This was initially a fork from https://github.com/pomahtuk/sequilize-highlight.
+The repo wasn't being updated, NPM wasn't serving the latest version and there
+was a severe memory leak. Though the latest version now exists on NPM, issues
+still persist. This repo serves to address those problems, as well as providing
+a cleaner interface that's not bound to Sequelize.
+
+With version 3.0.0 the library was almost completely rewritten, which leaves
+very little similarity with the original repo.
 
 [npm-image]: https://img.shields.io/npm/v/sql-highlight.svg
 [npm-url]: https://npmjs.org/package/sql-highlight

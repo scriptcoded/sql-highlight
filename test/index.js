@@ -3,10 +3,12 @@
  * that. It's just to see that it's working in the console.
  */
 
-const Highlighter = require('../index')
+const { highlight } = require('../index')
 
-const highlighter = new Highlighter({
-  html: true
+const sqlString = "SELECT COUNT(id), COUNT(id), `id`, `username` FROM `users` WHERE `email` = 'test@example.com' AND `something` = 'oke' AND 1=1"
+
+const highlighted = highlight(sqlString, {
+  // html: true
 })
 
-console.log(highlighter.highlight("SELECT `id`, `username` FROM `users` WHERE `email` = 'test@example.com'"))
+console.log(highlighted)

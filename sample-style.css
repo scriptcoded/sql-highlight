@@ -1,0 +1,23 @@
+code.sql {
+  font-family: monospace;
+  background-color: #000;
+}
+
+.sql-hl-keyword {
+  color: #f000f0;
+}
+.sql-hl-function {
+  color: #ff0000;
+}
+.sql-hl-number {
+  color: #00ff00;
+}
+.sql-hl-string {
+  color: #00ff00;
+}
+.sql-hl-special {
+  color: #ffff00;
+}
+.sql-hl-bracket {
+  color: #ffff00;
+}
