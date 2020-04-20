@@ -5,10 +5,5 @@
 
 const { highlight } = require('../index')
 
-const sqlString = "SELECT COUNT(id), COUNT(id), `id`, `username` FROM `users` WHERE `email` = 'test@example.com' AND `something` = 'oke' AND 1=1"
-
-const highlighted = highlight(sqlString, {
-  // html: true
-})
-
-console.log(highlighted)
+console.log(highlight("SELECT COUNT(id), COUNT(id), `id`, `username` FROM `users` WHERE `email` = 'test@example.com' AND `something` = 'oke' AND 1=1"))
+console.log(highlight('SELECT "users".* FROM "users"'))
