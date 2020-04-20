@@ -38,7 +38,7 @@ const highlighters = [
   },
   {
     name: 'string',
-    regex: /(['`].*?['`])/g
+    regex: /(["'`].*?["'`])/g
   },
   {
     name: 'bracket',
