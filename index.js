@@ -92,6 +92,8 @@ function highlight (sqlString, options) {
   return highlighted
 }
 
-module.exports = {
-  highlight
+module.exports = highlight
+module.exports.highlight = (...args) => {
+  console.warn('[sql-highlight] The use of the named exports will be deprecated in a future version of sql-highlight. See https://github.com/scriptcoded/sql-highlight/issues/5 for more information.')
+  return highlight(...args)
 }
