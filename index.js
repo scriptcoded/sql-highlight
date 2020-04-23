@@ -16,12 +16,12 @@ const DEFAULT_OPTIONS = {
 }
 const clearStyle = '\x1b[0m'
 
-const SPLIT_CHARS = '(^|[^a-zA-Z_])'
+const SPLIT_CHARS = '[^a-zA-Z_]'
 
 const highlighters = [
   {
     name: 'keyword',
-    regex: new RegExp(`${SPLIT_CHARS}(?:${keywords.join('|')})${SPLIT_CHARS}`, 'g')
+    regex: new RegExp(`(?:^|${SPLIT_CHARS})(?:${keywords.join('|')})(?=${SPLIT_CHARS})`, 'g')
   },
   {
     name: 'special',
