@@ -21,7 +21,7 @@ const SPLIT_CHARS = '[^a-zA-Z_]'
 const highlighters = [
   {
     name: 'keyword',
-    regex: new RegExp(`(?:^|${SPLIT_CHARS})(?:${keywords.join('|')})(?=${SPLIT_CHARS})`, 'g')
+    regex: new RegExp(`(?:^|${SPLIT_CHARS})(?:${keywords.join('|')})(?=${SPLIT_CHARS}|$)`, 'g')
   },
   {
     name: 'special',
