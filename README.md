@@ -3,6 +3,7 @@
 
 [![NPM Version][npm-image]][npm-url]
 [![Downloads Stats][npm-downloads]][npm-url]
+[![Coverage Status][coveralls-image]](coveralls-url)
 
 ## What's it all about?
 SQL Highlight is a small package that highlights SQL queries. It can output to
@@ -120,3 +121,5 @@ very little similarity with the original repo.
 [npm-image]: https://img.shields.io/npm/v/sql-highlight.svg
 [npm-url]: https://npmjs.org/package/sql-highlight
 [npm-downloads]: https://img.shields.io/npm/dm/sql-highlight.svg
+[coveralls-image]: https://coveralls.io/repos/github/scriptcoded/sql-highlight/badge.svg
+[coveralls-url]: https://coveralls.io/github/scriptcoded/sql-highlight
