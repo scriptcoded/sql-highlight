@@ -1,9 +1,10 @@
 # SQL syntax highlight
 > A simple and lightweight syntax highlighting library for SQL
 
-[![NPM Version][npm-image]][npm-url]
-[![Downloads Stats][npm-downloads]][npm-url]
-[![Coverage Status][coveralls-image]](coveralls-url)
+[![Tests Status][tests-badge]][tests-url]
+[![Coverage Status][coveralls-badge]][coveralls-url]
+[![NPM Version][npm-version-badge]][npm-url]
+[![Downloads Stats][npm-downloads-badge]][npm-url]
 
 ## What's it all about?
 SQL Highlight is a small package that highlights SQL queries. It can output to
@@ -118,8 +119,10 @@ a cleaner interface that's not bound to Sequelize.
 With version 3.0.0 the library was almost completely rewritten, which leaves
 very little similarity with the original repo.
 
-[npm-image]: https://img.shields.io/npm/v/sql-highlight.svg
-[npm-url]: https://npmjs.org/package/sql-highlight
-[npm-downloads]: https://img.shields.io/npm/dm/sql-highlight.svg
-[coveralls-image]: https://coveralls.io/repos/github/scriptcoded/sql-highlight/badge.svg
+[tests-badge]: https://img.shields.io/github/workflow/status/scriptcoded/sql-highlight/Run%20tests/master?label=tests
+[tests-url]: https://github.com/scriptcoded/sql-highlight/actions?query=workflow%3A%22Run+tests%22
+[coveralls-badge]: https://coveralls.io/repos/github/scriptcoded/sql-highlight/badge.svg
 [coveralls-url]: https://coveralls.io/github/scriptcoded/sql-highlight
+[npm-version-badge]: https://img.shields.io/npm/v/sql-highlight.svg
+[npm-downloads-badge]: https://img.shields.io/npm/dm/sql-highlight.svg
+[npm-url]: https://npmjs.org/package/sql-highlight
