@@ -1,5 +1,5 @@
 # SQL syntax highlight
-> A simple and lightweight syntax highlighting library for SQL
+> A simple and lightweight SQL syntax highlighting library written in pure JavaScript
 
 [![Tests Status][tests-badge]][tests-url]
 [![Coverage Status][coveralls-badge]][coveralls-url]
