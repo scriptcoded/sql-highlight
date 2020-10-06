@@ -29,7 +29,7 @@ const highlighters = [
   },
   {
     name: 'function',
-    regex: /(\w*?)\(/g,
+    regex: /(\w+?)\(/g,
     trimEnd: 1
   },
   {
@@ -48,12 +48,14 @@ const highlighters = [
 
 function highlight (sqlString, options) {
   options = Object.assign({}, DEFAULT_OPTIONS, options)
-  
+
   const matches = []
 
   for (const hl of highlighters) {
     let match
-    
+
+    // This is probably the one time when an assignment inside a condidion makes sense
+    // eslint-disable-next-line no-cond-assign
     while (match = hl.regex.exec(sqlString)) {
       matches.push({
         name: hl.name,
@@ -66,7 +68,7 @@ function highlight (sqlString, options) {
   const sortedMatches = matches.slice().sort((a, b) => a.start - b.start)
 
   // filter/exclude nested matches (matches within the last match)
-  let filteredMatches = []
+  const filteredMatches = []
   let upperBound = 0
   for (let i = 0; i < sortedMatches.length; i++) {
     if (sortedMatches[i].start >= upperBound) {
