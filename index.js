@@ -63,16 +63,16 @@ function highlight (sqlString, options) {
     }
   }
 
-  const sortedMatches = matches.slice().sort((a, b) => a.start - b.start);
+  const sortedMatches = matches.slice().sort((a, b) => a.start - b.start)
 
   // filter/exclude nested matches (matches within the last match)
-  let filteredMatches = [];
-  let upperBound = 0;
+  let filteredMatches = []
+  let upperBound = 0
   for (let i = 0; i < sortedMatches.length; i++) {
-     if (sortedMatches[i].start >= upperBound) {
-       filteredMatches.push(sortedMatches[i]);
-       upperBound = sortedMatches[i].start + sortedMatches[i].length;
-     }
+    if (sortedMatches[i].start >= upperBound) {
+      filteredMatches.push(sortedMatches[i])
+      upperBound = sortedMatches[i].start + sortedMatches[i].length
+    }
   }
 
   let highlighted = ''
