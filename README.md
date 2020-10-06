@@ -84,7 +84,8 @@ The following options may be passed to the `highlight` function.
   number: '\x1b[32m',   // Numbers
   string: '\x1b[32m',   // Strings
   special: '\x1b[33m',  // Special characters
-  bracket: '\x1b[33m'   // Brackets (parentheses)
+  bracket: '\x1b[33m',  // Brackets (parentheses)
+  clear: '\x1b[0m'      // Clear (inserted after each match)
 }
 ```
 

@@ -11,10 +11,10 @@ const DEFAULT_OPTIONS = {
     number: '\x1b[32m',
     string: '\x1b[32m',
     special: '\x1b[33m',
-    bracket: '\x1b[33m'
+    bracket: '\x1b[33m',
+    clear: '\x1b[0m'
   }
 }
-const clearStyle = '\x1b[0m'
 
 const SPLIT_CHARS = '[^a-zA-Z_]'
 
@@ -90,10 +90,9 @@ function highlight (sqlString, options) {
     } else {
       highlighted += options.colors[match.name]
       highlighted += stringMatch
-      highlighted += clearStyle
+      highlighted += options.colors.clear
     }
 
-    
     if (nextMatch) {
       highlighted += sqlString.substr(match.start + match.length, nextMatch.start - (match.start + match.length))
     }
