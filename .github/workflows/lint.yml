@@ -1,6 +1,6 @@
 # This workflow will do a clean install of node dependencies and run the linter
 
-name: Node.js CI
+name: Run linter
 
 on:
   push:
