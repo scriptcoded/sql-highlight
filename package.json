@@ -8,7 +8,9 @@
     "url": "https://github.com/scriptcoded/sql-highlight.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "npm run lint",
+    "test": "jest",
+    "lint": "eslint ."
   },
   "keywords": [
     "sql",
@@ -20,5 +22,15 @@
   "contributors": [
     "pomahtuk"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.10.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^26.5.2"
+  }
 }
