@@ -21,12 +21,10 @@ npm install sql-highlight
 ```
 
 ## Usage
-> Note that we're using ES6 import statements here. Usage with `require` works
-> just as well.
 
 **In its most basic form:**
 ```js
-import { highlight } from 'sql-highlight'
+const { highlight } = require('sql-highlight')
 
 const sqlString = "SELECT `id`, `username` FROM `users` WHERE `email` = 'test@example.com'"
 
@@ -37,7 +35,7 @@ console.log(highlighted)
 
 **Output:**
 
-![Screenshot 1](screenshot1.png)
+![Screenshot](screenshot.png)
 
 **HTML mode:**
 
@@ -91,11 +89,15 @@ The following options may be passed to the `highlight` function.
 
 ## Contributing
 
-1. Fork it (<https://github.com/scriptcoded/sql-highlight/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
+See the [contribution guidelines](CONTRIBUTING.md).
+
+## Tests
+
+We use [Jest](https://jestjs.io/) for running our tests. The test suite can be run by running `npm run test`. This will run both Jest and ESLint.
+
+## Code style
+
+We use [ESLint](https://eslint.org/) for making sure that our code remains pretty and consistent throughout the project. If your editor doesn't automatically pick up our config you can lint the code using `npm run lint`.
 
 ## Additional information
 
