@@ -66,6 +66,7 @@ function highlight (sqlString, options) {
   }
 
   const sortedMatches = matches.slice().sort((a, b) => a.start - b.start)
+  console.log(sortedMatches)
 
   // filter/exclude nested matches (matches within the last match)
   const filteredMatches = []
@@ -94,9 +95,11 @@ function highlight (sqlString, options) {
       highlighted += stringMatch
       highlighted += options.colors.clear
     }
-
+    console.log(nextMatch)
     if (nextMatch) {
       highlighted += sqlString.substr(match.start + match.length, nextMatch.start - (match.start + match.length))
+    }else if(sqlString.length > (match.start + match.length)){
+      highlighted += sqlString.substr(match.start + match.length)
     }
   }
 
