@@ -11,3 +11,4 @@ console.log(highlight('select "users".* from "users" where ("username" = \'test\
 
 console.log(highlight("SELECT COUNT(id), COUNT(id), `id`, `username` FROM `users` WHERE `email` = 'test@example.com' AND `something` = 'oke-doke' AND true = true"))
 console.log(highlight("SELECT COUNT(id), `id`, `username` FROM `users` WHERE `email` = 'test@example.com' AND (username in ( SELECT \"name\" from aTable)", { html: false }))
+console.log(highlight("SELECT id FROM users"))
