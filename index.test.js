@@ -131,4 +131,9 @@ describe('html', () => {
     expect(hlHtml("SELECT COUNT(id), `id`, `username` FROM `users` WHERE `email` = 'test@example.com' AND `foo` = 'BAR' OR 1=1"))
       .toBe("<span class=\"sql-hl-keyword\">SELECT</span> <span class=\"sql-hl-function\">COUNT</span><span class=\"sql-hl-bracket\">(</span>id<span class=\"sql-hl-bracket\">)</span><span class=\"sql-hl-special\">,</span> <span class=\"sql-hl-string\">`id`</span><span class=\"sql-hl-special\">,</span> <span class=\"sql-hl-string\">`username`</span><span class=\"sql-hl-keyword\"> FROM</span> <span class=\"sql-hl-string\">`users`</span><span class=\"sql-hl-keyword\"> WHERE</span> <span class=\"sql-hl-string\">`email`</span> <span class=\"sql-hl-special\">=</span> <span class=\"sql-hl-string\">'test@example.com'</span><span class=\"sql-hl-keyword\"> AND</span> <span class=\"sql-hl-string\">`foo`</span> <span class=\"sql-hl-special\">=</span> <span class=\"sql-hl-string\">'BAR'</span><span class=\"sql-hl-keyword\"> OR</span> <span class=\"sql-hl-number\">1</span><span class=\"sql-hl-special\">=</span><span class=\"sql-hl-number\">1</span>")
   })
+
+  it('query with identifiers without apostrophes', () => {
+    expect(hlHtml('SELECT id FROM users'))
+      .toBe('<span class="sql-hl-keyword">SELECT</span> id<span class="sql-hl-keyword"> FROM</span> users')
+  })
 })

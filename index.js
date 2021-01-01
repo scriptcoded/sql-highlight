@@ -94,9 +94,10 @@ function highlight (sqlString, options) {
       highlighted += stringMatch
       highlighted += options.colors.clear
     }
-
     if (nextMatch) {
       highlighted += sqlString.substr(match.start + match.length, nextMatch.start - (match.start + match.length))
+    } else if (sqlString.length > (match.start + match.length)) {
+      highlighted += sqlString.substr(match.start + match.length)
     }
   }
 
