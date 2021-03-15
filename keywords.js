@@ -116,6 +116,7 @@ const KEYWORDS = [
   'TO',
   'TRUE',
   'WHEN',
+  'WITH',
   'UNSIGNED',
   'CASCADE',
   'ENGINE',
