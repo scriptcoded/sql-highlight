@@ -2,7 +2,7 @@
   "name": "sql-highlight",
   "version": "0.0.0-development",
   "description": "A simple and lightweight syntax highlighting library for SQL",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/scriptcoded/sql-highlight.git"
