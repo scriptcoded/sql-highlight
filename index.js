@@ -21,7 +21,8 @@ const SPLIT_CHARS = '[^a-zA-Z_]'
 const highlighters = [
   {
     name: 'keyword',
-    regex: new RegExp(`(?:^|${SPLIT_CHARS})(?:${keywords.join('|')})(?=${SPLIT_CHARS}|$)`, 'g')
+    group: 1,
+    regex: new RegExp(`(^|${SPLIT_CHARS})(${keywords.join('|')})(?=${SPLIT_CHARS}|$)`, 'g')
   },
   {
     name: 'special',
@@ -54,13 +55,25 @@ function highlight (sqlString, options) {
   for (const hl of highlighters) {
     let match
 
-    // This is probably the one time when an assignment inside a condidion makes sense
+    // This is probably the one time when an assignment inside a condition makes sense
     // eslint-disable-next-line no-cond-assign
     while (match = hl.regex.exec(sqlString)) {
+      let text = match[0]
+      let boringLength = 0
+
+      // If a specific group is requested, use that group instead, and make sure
+      // we offset the index by the length of the preceding groups
+      if (hl.group) {
+        text = match[hl.group + 1]
+        for (let i = 1; i <= hl.group; i++) {
+          boringLength += match[i].length
+        }
+      }
+
       matches.push({
         name: hl.name,
-        start: match.index,
-        length: (hl.trimEnd ? match[0].substr(0, match[0].length - hl.trimEnd) : match[0]).length
+        start: match.index + boringLength,
+        length: (hl.trimEnd ? text.substr(0, text.length - hl.trimEnd) : text).length
       })
     }
   }
