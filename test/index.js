@@ -14,3 +14,6 @@ console.log(highlight("SELECT COUNT(id), `id`, `username` FROM `users` WHERE `em
 console.log(highlight('SELECT id FROM users'))
 
 console.log(highlight('WITH t1 AS (SELECT data_point FROM tablename) SELECT data_point FROM t1;'))
+
+console.log(highlight('SELECT id FROM listings WHERE status = \'not available\''))
+console.log(highlight('SELECT id FROM listings WHERE status = "not available"'))
