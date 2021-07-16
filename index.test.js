@@ -97,6 +97,11 @@ describe('html', () => {
       .toBe('<span class="sql-hl-number">42</span>')
   })
 
+  it('decimals', () => {
+    expect(hlHtml('42.11'))
+      .toBe('<span class="sql-hl-number">42.11</span>')
+  })
+
   it('keywords (uppercase)', () => {
     expect(hlHtml('SELECT'))
       .toBe('<span class="sql-hl-keyword">SELECT</span>')
