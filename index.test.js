@@ -1,4 +1,4 @@
-const { highlight } = require('./index')
+const { highlight } = require('./lib')
 
 const OPTIONS = {
   colors: {

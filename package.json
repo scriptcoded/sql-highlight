@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/scriptcoded/sql-highlight.git"
   },
+  "files": [
+    "/lib"
+  ],
   "scripts": {
     "pretest": "npm run lint",
     "test": "jest",
