@@ -25,7 +25,7 @@ const highlighters = [
   },
   {
     name: 'special',
-    regex: /(=|%|\/|\*|-|,|;|:|\+|<|>)/g
+    regex: /(=|!=|%|\/|\*|-|,|;|:|\+|<|>)/g
   },
   {
     name: 'function',
