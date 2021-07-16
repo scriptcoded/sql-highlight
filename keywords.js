@@ -122,7 +122,10 @@ const KEYWORDS = [
   'ENGINE',
   'TEXT',
   'AUTO_INCREMENT',
-  'SHOW'
+  'SHOW',
+  'BEGIN',
+  'END',
+  'PRINT'
 ]
 
 module.exports = [
