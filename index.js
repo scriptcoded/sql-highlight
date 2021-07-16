@@ -35,7 +35,7 @@ const highlighters = [
   },
   {
     name: 'number',
-    regex: /(\d+)/g
+    regex: /(\d+(?:\.\d+)?)/g
   },
   {
     name: 'string',

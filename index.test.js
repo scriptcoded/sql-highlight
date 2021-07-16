@@ -35,6 +35,11 @@ describe('unicode', () => {
       .toBe('[number]42[clear]')
   })
 
+  it('decimals', () => {
+    expect(hlUni('42.11'))
+      .toBe('[number]42.11[clear]')
+  })
+
   it('keywords (uppercase)', () => {
     expect(hlUni('SELECT'))
       .toBe('[keyword]SELECT[clear]')
