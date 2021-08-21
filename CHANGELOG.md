@@ -1,3 +1,10 @@
+## [4.0.1](https://github.com/scriptcoded/sql-highlight/compare/v4.0.0...v4.0.1) (2021-08-21)
+
+
+### Bug Fixes
+
+* add overlaps keyword ([29321dd](https://github.com/scriptcoded/sql-highlight/commit/29321ddcb55fb9e9859c07887bc1d81567ba1181))
+
 # [4.0.0](https://github.com/scriptcoded/sql-highlight/compare/v3.3.5...v4.0.0) (2021-07-16)
 
 
