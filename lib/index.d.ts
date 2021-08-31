@@ -1,17 +1,17 @@
-export interface highlightOptions {
-  html?: boolean,
-  classPrefix?: string,
+export interface HighlightOptions {
+  html?: boolean;
+  classPrefix?: string;
   colors?: {
-    keyword: string,
-    function: string,
-    number: string,
-    string: string,
-    special: string,
-    bracket: string,
-    clear: string
-  }
+    keyword: string;
+    function: string;
+    number: string;
+    string: string;
+    special: string;
+    bracket: string;
+    clear: string;
+  };
 }
 
 declare module 'sql-highlight' {
-  export function highlight(sqlString: string, options?:highlightOptions): string;
+  export function highlight(sqlString: string, options?: HighlightOptions): string
 }
