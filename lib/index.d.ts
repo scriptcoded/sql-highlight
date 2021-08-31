@@ -13,5 +13,5 @@ declare module 'sql-highlight' {
     };
   }
   
-  export function highlight(sqlString: string, options?: HighlightOptions): string
+  export function highlight(sqlString: string, options?: HighlightOptions): string;
 }
