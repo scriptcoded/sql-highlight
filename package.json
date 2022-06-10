@@ -40,6 +40,6 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^4.1.0",
     "jest": "^27.0.6",
-    "semantic-release": "^17.4.4"
+    "semantic-release": "^19.0.3"
   }
 }
