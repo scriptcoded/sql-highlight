@@ -30,6 +30,11 @@ describe('unicode', () => {
       .toBe('[string]"Hello, world!"[clear]')
   })
 
+  it('strings (mixing quotes)', () => {
+    expect(hlUni('\'{"key":"value"}\''))
+      .toBe('[string]\'{"key":"value"}\'[clear]')
+  })
+
   it('integers', () => {
     expect(hlUni('42'))
       .toBe('[number]42[clear]')
@@ -90,6 +95,11 @@ describe('html', () => {
   it('strings (double quotes)', () => {
     expect(hlHtml('"Hello, world!"'))
       .toBe('<span class="sql-hl-string">"Hello, world!"</span>')
+  })
+
+  it('strings (mixing quotes)', () => {
+    expect(hlHtml('\'{"key":"value"}\''))
+      .toBe('<span class="sql-hl-string">\'{"key":"value"}\'</span>')
   })
 
   it('integers', () => {

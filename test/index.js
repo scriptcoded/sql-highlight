@@ -17,3 +17,5 @@ console.log(highlight('WITH t1 AS (SELECT data_point FROM tablename) SELECT data
 
 console.log(highlight('SELECT id FROM listings WHERE status = \'not available\''))
 console.log(highlight('SELECT id FROM listings WHERE status = "not available"'))
+
+console.log(highlight('SELECT \'{"json_index":"json_value"}\' AS test;'))
