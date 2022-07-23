@@ -1,3 +1,10 @@
+# [4.1.0](https://github.com/scriptcoded/sql-highlight/compare/v4.0.5...v4.1.0) (2022-07-23)
+
+
+### Features
+
+* mixed case keyword matching ([#47](https://github.com/scriptcoded/sql-highlight/issues/47)) ([f848a14](https://github.com/scriptcoded/sql-highlight/commit/f848a140d43df140e77e003a0c6914b61560e708))
+
 ## [4.0.5](https://github.com/scriptcoded/sql-highlight/compare/v4.0.4...v4.0.5) (2022-07-23)
 
 
