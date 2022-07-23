@@ -1,3 +1,10 @@
+## [4.0.4](https://github.com/scriptcoded/sql-highlight/compare/v4.0.3...v4.0.4) (2022-07-23)
+
+
+### Bug Fixes
+
+* revert keyword typo ([b887c52](https://github.com/scriptcoded/sql-highlight/commit/b887c52cae1571ef71ef5ab79c0607d339b4391d)), closes [#36](https://github.com/scriptcoded/sql-highlight/issues/36)
+
 ## [4.0.3](https://github.com/scriptcoded/sql-highlight/compare/v4.0.2...v4.0.3) (2022-07-23)
 
 
