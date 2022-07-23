@@ -1,3 +1,10 @@
+## [4.0.3](https://github.com/scriptcoded/sql-highlight/compare/v4.0.2...v4.0.3) (2022-07-23)
+
+
+### Bug Fixes
+
+* add IFNULL keyword ([0fb413a](https://github.com/scriptcoded/sql-highlight/commit/0fb413a21547c9b033e66613dc15c53446ca5591)), closes [#39](https://github.com/scriptcoded/sql-highlight/issues/39)
+
 ## [4.0.2](https://github.com/scriptcoded/sql-highlight/compare/v4.0.1...v4.0.2) (2022-07-23)
 
 
