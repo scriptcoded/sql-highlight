@@ -1,3 +1,10 @@
+## [4.0.2](https://github.com/scriptcoded/sql-highlight/compare/v4.0.1...v4.0.2) (2022-07-23)
+
+
+### Bug Fixes
+
+* add missing keywords ([cfaca34](https://github.com/scriptcoded/sql-highlight/commit/cfaca34d46bb894e6b4968dae8bfae84be391b22))
+
 ## [4.0.1](https://github.com/scriptcoded/sql-highlight/compare/v4.0.0...v4.0.1) (2021-08-21)
 
 
