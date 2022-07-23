@@ -50,6 +50,11 @@ describe('unicode', () => {
       .toBe('[keyword]select[clear]')
   })
 
+  it('keywords (mixed case)', () => {
+    expect(hlUni('SElect'))
+      .toBe('[keyword]SElect[clear]')
+  })
+
   it('special characters', () => {
     expect(hlUni('='))
       .toBe('[special]=[clear]')
