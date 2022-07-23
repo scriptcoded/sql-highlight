@@ -17,7 +17,8 @@ module.exports = {
     'jest/prefer-expect-assertions': [
       'warn',
       { onlyFunctionsWithAsyncKeyword: true }
-    ]
+    ],
+    'jest/require-hook': 'off'
   },
   plugins: ['jest']
 }
