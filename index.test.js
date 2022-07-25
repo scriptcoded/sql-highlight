@@ -31,8 +31,13 @@ describe('unicode', () => {
   })
 
   it('strings (mixing quotes)', () => {
-    expect(hlUni('\'{"key":"value"}\''))
-      .toBe('[string]\'{"key":"value"}\'[clear]')
+    expect(hlUni('\'"`\' "\'`" `"\'`'))
+      .toBe('[string]\'"`\'[clear] [string]"\'`"[clear] [string]`"\'`[clear]')
+  })
+
+  it('strings (scaping quotes)', () => {
+    expect(hlUni('\'\\\'\' "\\"" `\\``'))
+      .toBe('[string]\'\\\'\'[clear] [string]"\\""[clear] [string]`\\``[clear]')
   })
 
   it('integers', () => {
@@ -98,8 +103,13 @@ describe('html', () => {
   })
 
   it('strings (mixing quotes)', () => {
-    expect(hlHtml('\'{"key":"value"}\''))
-      .toBe('<span class="sql-hl-string">\'{"key":"value"}\'</span>')
+    expect(hlHtml('\'"`\' "\'`" `"\'`'))
+      .toBe('<span class="sql-hl-string">\'"`\'</span> <span class="sql-hl-string">"\'`"</span> <span class="sql-hl-string">`"\'`</span>')
+  })
+
+  it('strings (scaping quotes)', () => {
+    expect(hlHtml('\'\\\'\' "\\"" `\\``'))
+      .toBe('<span class="sql-hl-string">\'\\\'\'</span> <span class="sql-hl-string">"\\""</span> <span class="sql-hl-string">`\\``</span>')
   })
 
   it('integers', () => {
