@@ -5,6 +5,14 @@
 
 * mixed case keyword matching ([#47](https://github.com/scriptcoded/sql-highlight/issues/47)) ([f848a14](https://github.com/scriptcoded/sql-highlight/commit/f848a140d43df140e77e003a0c6914b61560e708))
 
+## [4.1.1](https://github.com/scriptcoded/sql-highlight/compare/v4.1.0...v4.1.1) (2022-07-26)
+
+
+### Bug Fixes
+
+* nested quotes ([#40](https://github.com/scriptcoded/sql-highlight/issues/40)) ([b2c2a6c](https://github.com/scriptcoded/sql-highlight/commit/b2c2a6c4b1bf3370b3dd0da6af36838e4e08e644))
+* number regex ([#41](https://github.com/scriptcoded/sql-highlight/issues/41)) ([a6d1fd6](https://github.com/scriptcoded/sql-highlight/commit/a6d1fd640e115583d9e69d82ef1fb429f5b3da1b))
+
 ## [4.0.5](https://github.com/scriptcoded/sql-highlight/compare/v4.0.4...v4.0.5) (2022-07-23)
 
 
