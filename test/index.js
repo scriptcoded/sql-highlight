@@ -18,3 +18,6 @@ console.log(highlight('SELECT f1, f20b, f3a, -1, 1, "1", 1.00 FROM t1;'))
 
 console.log(highlight('SELECT id FROM listings WHERE status = \'not available\''))
 console.log(highlight('SELECT id FROM listings WHERE status = "not available"'))
+
+console.log(highlight('SELECT \'{"json_index":"json_value"}\' AS test;'))
+console.log(highlight('SELECT "This is a \\"text\\" test" AS text;'))

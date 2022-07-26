@@ -30,6 +30,16 @@ describe('unicode', () => {
       .toBe('[string]"Hello, world!"[clear]')
   })
 
+  it('strings (mixing quotes)', () => {
+    expect(hlUni('\'"`\' "\'`" `"\'`'))
+      .toBe('[string]\'"`\'[clear] [string]"\'`"[clear] [string]`"\'`[clear]')
+  })
+
+  it('strings (scaping quotes)', () => {
+    expect(hlUni('\'\\\'\' "\\"" `\\``'))
+      .toBe('[string]\'\\\'\'[clear] [string]"\\""[clear] [string]`\\``[clear]')
+  })
+
   it('integers', () => {
     expect(hlUni('42'))
       .toBe('[number]42[clear]')
@@ -100,6 +110,16 @@ describe('html', () => {
   it('strings (double quotes)', () => {
     expect(hlHtml('"Hello, world!"'))
       .toBe('<span class="sql-hl-string">"Hello, world!"</span>')
+  })
+
+  it('strings (mixing quotes)', () => {
+    expect(hlHtml('\'"`\' "\'`" `"\'`'))
+      .toBe('<span class="sql-hl-string">\'"`\'</span> <span class="sql-hl-string">"\'`"</span> <span class="sql-hl-string">`"\'`</span>')
+  })
+
+  it('strings (scaping quotes)', () => {
+    expect(hlHtml('\'\\\'\' "\\"" `\\``'))
+      .toBe('<span class="sql-hl-string">\'\\\'\'</span> <span class="sql-hl-string">"\\""</span> <span class="sql-hl-string">`\\``</span>')
   })
 
   it('integers', () => {
