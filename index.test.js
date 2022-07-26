@@ -70,6 +70,11 @@ describe('unicode', () => {
       .toBe("[string]'34'[clear]")
   })
 
+  it('alphanumeric', () => {
+    expect(hlUni('(f1)'))
+      .toBe('[bracket]([clear]f1[bracket])[clear]')
+  })
+
   it('functions', () => {
     expect(hlUni('COUNT(`id`)'))
       .toBe('[function]COUNT[clear][bracket]([clear][string]`id`[clear][bracket])[clear]')
@@ -130,6 +135,11 @@ describe('html', () => {
   it('numbers within strings', () => {
     expect(hlHtml("'34'"))
       .toBe("<span class=\"sql-hl-string\">'34'</span>")
+  })
+
+  it('alphanumeric', () => {
+    expect(hlHtml('(f1)'))
+      .toBe('<span class="sql-hl-bracket">(</span>f1<span class="sql-hl-bracket">)</span>')
   })
 
   it('functions', () => {
