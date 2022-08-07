@@ -8,7 +8,8 @@ const OPTIONS = {
     string: '[string]',
     special: '[special]',
     bracket: '[bracket]',
-    clear: '[clear]'
+    clear: '[clear]',
+    default: '[default]'
   }
 }
 
@@ -32,12 +33,12 @@ describe('unicode', () => {
 
   it('strings (mixing quotes)', () => {
     expect(hlUni('\'"`\' "\'`" `"\'`'))
-      .toBe('[string]\'"`\'[clear] [string]"\'`"[clear] [string]`"\'`[clear]')
+      .toBe('[string]\'"`\'[clear][default] [clear][string]"\'`"[clear][default] [clear][string]`"\'`[clear]')
   })
 
   it('strings (scaping quotes)', () => {
     expect(hlUni('\'\\\'\' "\\"" `\\``'))
-      .toBe('[string]\'\\\'\'[clear] [string]"\\""[clear] [string]`\\``[clear]')
+      .toBe('[string]\'\\\'\'[clear][default] [clear][string]"\\""[clear][default] [clear][string]`\\``[clear]')
   })
 
   it('integers', () => {
@@ -81,8 +82,8 @@ describe('unicode', () => {
   })
 
   it('alphanumeric', () => {
-    expect(hlUni('(f1)'))
-      .toBe('[bracket]([clear]f1[bracket])[clear]')
+    expect(hlUni('(f2)'))
+      .toBe('[bracket]([clear][default]f2[clear][bracket])[clear]')
   })
 
   it('functions', () => {
@@ -92,12 +93,12 @@ describe('unicode', () => {
 
   it('basic query', () => {
     expect(hlUni("SELECT * FROM `users` WHERE `email` = 'test@example.com'"))
-      .toBe("[keyword]SELECT[clear] [special]*[clear] [keyword]FROM[clear] [string]`users`[clear] [keyword]WHERE[clear] [string]`email`[clear] [special]=[clear] [string]'test@example.com'[clear]")
+      .toBe("[keyword]SELECT[clear][default] [clear][special]*[clear][default] [clear][keyword]FROM[clear][default] [clear][string]`users`[clear][default] [clear][keyword]WHERE[clear][default] [clear][string]`email`[clear][default] [clear][special]=[clear][default] [clear][string]'test@example.com'[clear]")
   })
 
   it('complex query', () => {
     expect(hlUni("SELECT COUNT(id), `id`, `username` FROM `users` WHERE `email` = 'test@example.com' AND `foo` = 'BAR' OR 1=1"))
-      .toBe("[keyword]SELECT[clear] [function]COUNT[clear][bracket]([clear]id[bracket])[clear][special],[clear] [string]`id`[clear][special],[clear] [string]`username`[clear] [keyword]FROM[clear] [string]`users`[clear] [keyword]WHERE[clear] [string]`email`[clear] [special]=[clear] [string]'test@example.com'[clear] [keyword]AND[clear] [string]`foo`[clear] [special]=[clear] [string]'BAR'[clear] [keyword]OR[clear] [number]1[clear][special]=[clear][number]1[clear]")
+      .toBe("[keyword]SELECT[clear][default] [clear][function]COUNT[clear][bracket]([clear][default]id[clear][bracket])[clear][special],[clear][default] [clear][string]`id`[clear][special],[clear][default] [clear][string]`username`[clear][default] [clear][keyword]FROM[clear][default] [clear][string]`users`[clear][default] [clear][keyword]WHERE[clear][default] [clear][string]`email`[clear][default] [clear][special]=[clear][default] [clear][string]'test@example.com'[clear][default] [clear][keyword]AND[clear][default] [clear][string]`foo`[clear][default] [clear][special]=[clear][default] [clear][string]'BAR'[clear][default] [clear][keyword]OR[clear][default] [clear][number]1[clear][special]=[clear][number]1[clear]")
   })
 })
 
@@ -114,12 +115,12 @@ describe('html', () => {
 
   it('strings (mixing quotes)', () => {
     expect(hlHtml('\'"`\' "\'`" `"\'`'))
-      .toBe('<span class="sql-hl-string">\'"`\'</span> <span class="sql-hl-string">"\'`"</span> <span class="sql-hl-string">`"\'`</span>')
+      .toBe('<span class="sql-hl-string">\'"`\'</span><span class="sql-hl-default"> </span><span class="sql-hl-string">"\'`"</span><span class="sql-hl-default"> </span><span class="sql-hl-string">`"\'`</span>')
   })
 
   it('strings (scaping quotes)', () => {
     expect(hlHtml('\'\\\'\' "\\"" `\\``'))
-      .toBe('<span class="sql-hl-string">\'\\\'\'</span> <span class="sql-hl-string">"\\""</span> <span class="sql-hl-string">`\\``</span>')
+      .toBe("<span class=\"sql-hl-string\">'\\''</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-string\">\"\\\"\"</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-string\">`\\``</span>")
   })
 
   it('integers', () => {
@@ -159,7 +160,7 @@ describe('html', () => {
 
   it('alphanumeric', () => {
     expect(hlHtml('(f1)'))
-      .toBe('<span class="sql-hl-bracket">(</span>f1<span class="sql-hl-bracket">)</span>')
+      .toBe('<span class="sql-hl-bracket">(</span><span class="sql-hl-default">f1</span><span class="sql-hl-bracket">)</span>')
   })
 
   it('functions', () => {
@@ -169,17 +170,17 @@ describe('html', () => {
 
   it('basic query', () => {
     expect(hlHtml("SELECT * FROM `users` WHERE `email` = 'test@example.com'"))
-      .toBe("<span class=\"sql-hl-keyword\">SELECT</span> <span class=\"sql-hl-special\">*</span> <span class=\"sql-hl-keyword\">FROM</span> <span class=\"sql-hl-string\">`users`</span> <span class=\"sql-hl-keyword\">WHERE</span> <span class=\"sql-hl-string\">`email`</span> <span class=\"sql-hl-special\">=</span> <span class=\"sql-hl-string\">'test@example.com'</span>")
+      .toBe("<span class=\"sql-hl-keyword\">SELECT</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-special\">*</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-keyword\">FROM</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-string\">`users`</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-keyword\">WHERE</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-string\">`email`</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-special\">=</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-string\">'test@example.com'</span>")
   })
 
   it('complex query', () => {
     expect(hlHtml("SELECT COUNT(id), `id`, `username` FROM `users` WHERE `email` = 'test@example.com' AND `foo` = 'BAR' OR 1=1"))
-      .toBe("<span class=\"sql-hl-keyword\">SELECT</span> <span class=\"sql-hl-function\">COUNT</span><span class=\"sql-hl-bracket\">(</span>id<span class=\"sql-hl-bracket\">)</span><span class=\"sql-hl-special\">,</span> <span class=\"sql-hl-string\">`id`</span><span class=\"sql-hl-special\">,</span> <span class=\"sql-hl-string\">`username`</span> <span class=\"sql-hl-keyword\">FROM</span> <span class=\"sql-hl-string\">`users`</span> <span class=\"sql-hl-keyword\">WHERE</span> <span class=\"sql-hl-string\">`email`</span> <span class=\"sql-hl-special\">=</span> <span class=\"sql-hl-string\">'test@example.com'</span> <span class=\"sql-hl-keyword\">AND</span> <span class=\"sql-hl-string\">`foo`</span> <span class=\"sql-hl-special\">=</span> <span class=\"sql-hl-string\">'BAR'</span> <span class=\"sql-hl-keyword\">OR</span> <span class=\"sql-hl-number\">1</span><span class=\"sql-hl-special\">=</span><span class=\"sql-hl-number\">1</span>")
+      .toBe("<span class=\"sql-hl-keyword\">SELECT</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-function\">COUNT</span><span class=\"sql-hl-bracket\">(</span><span class=\"sql-hl-default\">id</span><span class=\"sql-hl-bracket\">)</span><span class=\"sql-hl-special\">,</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-string\">`id`</span><span class=\"sql-hl-special\">,</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-string\">`username`</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-keyword\">FROM</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-string\">`users`</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-keyword\">WHERE</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-string\">`email`</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-special\">=</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-string\">'test@example.com'</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-keyword\">AND</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-string\">`foo`</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-special\">=</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-string\">'BAR'</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-keyword\">OR</span><span class=\"sql-hl-default\"> </span><span class=\"sql-hl-number\">1</span><span class=\"sql-hl-special\">=</span><span class=\"sql-hl-number\">1</span>")
   })
 
   it('query with identifiers without apostrophes', () => {
     expect(hlHtml('SELECT id FROM users'))
-      .toBe('<span class="sql-hl-keyword">SELECT</span> id <span class="sql-hl-keyword">FROM</span> users')
+      .toBe('<span class="sql-hl-keyword">SELECT</span><span class="sql-hl-default"> id </span><span class="sql-hl-keyword">FROM</span><span class="sql-hl-default"> users</span>')
   })
 })
 
