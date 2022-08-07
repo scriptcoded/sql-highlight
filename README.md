@@ -89,6 +89,41 @@ The following options may be passed to the `highlight` function.
 }
 ```
 
+**Get segments for custom highlighter**
+```js
+const { getSegments } = require('sql-highlight')
+
+const sqlString = "SELECT `id`, `username` FROM `users` WHERE `email` = 'test@example.com'"
+
+const segments = getSegments(sqlString)
+
+console.log(segments)
+```
+
+**Output:**
+```js
+[
+    { name: 'keyword', content: 'SELECT' },
+    { name: 'default', content: ' ' },
+    { name: 'string', content: '`id`' },
+    { name: 'special', content: ',' },
+    { name: 'default', content: ' ' },
+    { name: 'string', content: '`username`' },
+    { name: 'default', content: ' ' },
+    { name: 'keyword', content: 'FROM' },
+    { name: 'default', content: ' ' },
+    { name: 'string', content: '`users`' },
+    { name: 'default', content: ' ' },
+    { name: 'keyword', content: 'WHERE' },
+    { name: 'default', content: ' ' },
+    { name: 'string', content: '`email`' },
+    { name: 'default', content: ' ' },
+    { name: 'special', content: '=' },
+    { name: 'default', content: ' ' },
+    { name: 'string', content: "'test@example.com'" }
+]
+```
+
 ## Contributing
 
 See the [contribution guidelines](CONTRIBUTING.md).

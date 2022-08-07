@@ -12,6 +12,12 @@ declare module 'sql-highlight' {
       clear: string;
     };
   }
+
+  export interface Segment {
+    name: string;
+    content: string;
+  }
   
+  export function getSegments(sqlString: string): Array<Segment>;
   export function highlight(sqlString: string, options?: HighlightOptions): string;
 }

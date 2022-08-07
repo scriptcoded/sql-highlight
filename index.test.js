@@ -1,4 +1,4 @@
-const { highlight } = require('./lib')
+const { highlight, getSegments } = require('./lib')
 
 const OPTIONS = {
   colors: {
@@ -180,5 +180,51 @@ describe('html', () => {
   it('query with identifiers without apostrophes', () => {
     expect(hlHtml('SELECT id FROM users'))
       .toBe('<span class="sql-hl-keyword">SELECT</span> id <span class="sql-hl-keyword">FROM</span> users')
+  })
+})
+
+describe('getSegments', () => {
+  it('complex query', () => {
+    expect(getSegments("SELECT COUNT(id), `id`, `username` FROM `users` WHERE `email` = 'test@example.com' AND `foo` = 'BAR' OR 1=1"))
+      .toStrictEqual([
+        { name: 'keyword', content: 'SELECT' },
+        { name: 'default', content: ' ' },
+        { name: 'function', content: 'COUNT' },
+        { name: 'bracket', content: '(' },
+        { name: 'default', content: 'id' },
+        { name: 'bracket', content: ')' },
+        { name: 'special', content: ',' },
+        { name: 'default', content: ' ' },
+        { name: 'string', content: '`id`' },
+        { name: 'special', content: ',' },
+        { name: 'default', content: ' ' },
+        { name: 'string', content: '`username`' },
+        { name: 'default', content: ' ' },
+        { name: 'keyword', content: 'FROM' },
+        { name: 'default', content: ' ' },
+        { name: 'string', content: '`users`' },
+        { name: 'default', content: ' ' },
+        { name: 'keyword', content: 'WHERE' },
+        { name: 'default', content: ' ' },
+        { name: 'string', content: '`email`' },
+        { name: 'default', content: ' ' },
+        { name: 'special', content: '=' },
+        { name: 'default', content: ' ' },
+        { name: 'string', content: "'test@example.com'" },
+        { name: 'default', content: ' ' },
+        { name: 'keyword', content: 'AND' },
+        { name: 'default', content: ' ' },
+        { name: 'string', content: '`foo`' },
+        { name: 'default', content: ' ' },
+        { name: 'special', content: '=' },
+        { name: 'default', content: ' ' },
+        { name: 'string', content: "'BAR'" },
+        { name: 'default', content: ' ' },
+        { name: 'keyword', content: 'OR' },
+        { name: 'default', content: ' ' },
+        { name: 'number', content: '1' },
+        { name: 'special', content: '=' },
+        { name: 'number', content: '1' }
+      ])
   })
 })
