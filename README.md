@@ -89,7 +89,10 @@ The following options may be passed to the `highlight` function.
 }
 ```
 
-**Get segments for custom highlighter**
+## Custom highlighting
+
+In case you want to do the highlighting yourself you can use `getSegments` to only let sql-highlight parse the SQL string for you. You can then use the segments to highlight it yourself.
+
 ```js
 const { getSegments } = require('sql-highlight')
 
