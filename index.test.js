@@ -100,6 +100,11 @@ describe('unicode', () => {
       .toBe("[keyword]SELECT[clear] [function]COUNT[clear][bracket]([clear]id[bracket])[clear][special],[clear] [string]`id`[clear][special],[clear] [string]`username`[clear] [keyword]FROM[clear] [string]`users`[clear] [keyword]WHERE[clear] [string]`email`[clear] [special]=[clear] [string]'test@example.com'[clear] [keyword]AND[clear] [string]`foo`[clear] [special]=[clear] [string]'BAR'[clear] [keyword]OR[clear] [number]1[clear][special]=[clear][number]1[clear]")
   })
 
+  it('query with identifiers without apostrophes', () => {
+    expect(hlUni('SELECT id FROM users'))
+      .toBe('[keyword]SELECT[clear] id [keyword]FROM[clear] users')
+  })
+
   it('query with nested segments (minus in string)', () => {
     expect(hlUni('DROP PROCEDURE IF EXISTS `some-database`.`some-table`;'))
       .toBe('[keyword]DROP[clear] [keyword]PROCEDURE[clear] [keyword]IF[clear] [keyword]EXISTS[clear] [string]`some-database`[clear].[string]`some-table`[clear][special];[clear]')
