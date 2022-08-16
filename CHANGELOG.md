@@ -5,6 +5,13 @@
 
 * mixed case keyword matching ([#47](https://github.com/scriptcoded/sql-highlight/issues/47)) ([f848a14](https://github.com/scriptcoded/sql-highlight/commit/f848a140d43df140e77e003a0c6914b61560e708))
 
+## [4.2.1](https://github.com/scriptcoded/sql-highlight/compare/v4.2.0...v4.2.1) (2022-08-16)
+
+
+### Bug Fixes
+
+* don't break on nested segments ([#62](https://github.com/scriptcoded/sql-highlight/issues/62)) ([997ee9d](https://github.com/scriptcoded/sql-highlight/commit/997ee9deb9d25f48ce2b20c78c13ea22798fe8c4))
+
 ## [4.2.0](https://github.com/scriptcoded/sql-highlight/compare/v4.1.1...v4.2.0) (2022-08-08)
 
 
