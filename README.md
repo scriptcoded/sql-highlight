@@ -74,7 +74,7 @@ The following options may be passed to the `highlight` function.
 | --- | --- | --- | --- |
 | html | `boolean` | `false` | Set to true to render HTML instead of Unicode.
 | classPrefix | `string` | `'sql-hl-'` | Prefix to prepend to classes for HTML span-tags. Is appended with entity name.
-| colors | `Object` | _See below_* | What color codes to use for Unicode rendering.
+| colors | `Object` | _See below_* | What color codes to use for Unicode rendering. A list of basic color codes can be found [here](https://docs.rs/embedded-text/0.4.0/embedded_text/style/index.html#standard-color-codes).
 
 \* `colors` option default value
 ```js
