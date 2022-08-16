@@ -3,7 +3,7 @@
  * that. It's just to see that it's working in the console.
  */
 
-const { highlight } = require('../index')
+const { highlight } = require('../lib')
 
 console.log(highlight("SELECT COUNT(id), COUNT(id), `id`, `username` FROM `users` WHERE `email` = 'test@example.com' AND `something` = 'oke' AND 1=1"))
 console.log(highlight('SELECT "users".* FROM "users"'))
@@ -21,3 +21,7 @@ console.log(highlight('SELECT id FROM listings WHERE status = "not available"'))
 
 console.log(highlight('SELECT \'{"json_index":"json_value"}\' AS test;'))
 console.log(highlight('SELECT "This is a \\"text\\" test" AS text;'))
+
+console.log(highlight('DROP PROCEDURE IF EXISTS `some-database`.`some-table`;'))
+
+console.log(highlight('SELECT * FROM a;SELECT * FROM b;'))

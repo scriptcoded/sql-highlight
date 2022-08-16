@@ -99,6 +99,16 @@ describe('unicode', () => {
     expect(hlUni("SELECT COUNT(id), `id`, `username` FROM `users` WHERE `email` = 'test@example.com' AND `foo` = 'BAR' OR 1=1"))
       .toBe("[keyword]SELECT[clear] [function]COUNT[clear][bracket]([clear]id[bracket])[clear][special],[clear] [string]`id`[clear][special],[clear] [string]`username`[clear] [keyword]FROM[clear] [string]`users`[clear] [keyword]WHERE[clear] [string]`email`[clear] [special]=[clear] [string]'test@example.com'[clear] [keyword]AND[clear] [string]`foo`[clear] [special]=[clear] [string]'BAR'[clear] [keyword]OR[clear] [number]1[clear][special]=[clear][number]1[clear]")
   })
+
+  it('query with nested segments (minus in string)', () => {
+    expect(hlUni('DROP PROCEDURE IF EXISTS `some-database`.`some-table`;'))
+      .toBe('[keyword]DROP[clear] [keyword]PROCEDURE[clear] [keyword]IF[clear] [keyword]EXISTS[clear] [string]`some-database`[clear].[string]`some-table`[clear][special];[clear]')
+  })
+
+  it('multiple queries', () => {
+    expect(hlUni('SELECT * FROM a;SELECT * FROM b;'))
+      .toBe('[keyword]SELECT[clear] [special]*[clear] [keyword]FROM[clear] a[special];[clear][keyword]SELECT[clear] [special]*[clear] [keyword]FROM[clear] b[special];[clear]')
+  })
 })
 
 describe('html', () => {
@@ -180,6 +190,16 @@ describe('html', () => {
   it('query with identifiers without apostrophes', () => {
     expect(hlHtml('SELECT id FROM users'))
       .toBe('<span class="sql-hl-keyword">SELECT</span> id <span class="sql-hl-keyword">FROM</span> users')
+  })
+
+  it('query with nested segments (minus in string)', () => {
+    expect(hlHtml('DROP PROCEDURE IF EXISTS `some-database`.`some-table`;'))
+      .toBe('<span class="sql-hl-keyword">DROP</span> <span class="sql-hl-keyword">PROCEDURE</span> <span class="sql-hl-keyword">IF</span> <span class="sql-hl-keyword">EXISTS</span> <span class="sql-hl-string">`some-database`</span>.<span class="sql-hl-string">`some-table`</span><span class="sql-hl-special">;</span>')
+  })
+
+  it('multiple queries', () => {
+    expect(hlHtml('SELECT * FROM a;SELECT * FROM b;'))
+      .toBe('<span class="sql-hl-keyword">SELECT</span> <span class="sql-hl-special">*</span> <span class="sql-hl-keyword">FROM</span> a<span class="sql-hl-special">;</span><span class="sql-hl-keyword">SELECT</span> <span class="sql-hl-special">*</span> <span class="sql-hl-keyword">FROM</span> b<span class="sql-hl-special">;</span>')
   })
 })
 
