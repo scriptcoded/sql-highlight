@@ -1,5 +1,6 @@
-# SQL syntax highlight
-> A simple and lightweight SQL syntax highlighting library written in pure JavaScript
+# sql-highlight
+> A simple and lightweight library for highlighting SQL queries written in pure
+> JavaScript
 
 [![Tests Status][tests-badge]][tests-url]
 [![Coverage Status][coveralls-badge]][coveralls-url]
@@ -7,17 +8,19 @@
 [![Downloads Stats][npm-downloads-badge]][npm-url]
 
 ## What's it all about?
-SQL Highlight is a small package that highlights SQL queries. It can output to
+sql-highlight is a small package that highlights SQL queries. It can output to
 both the terminal with Unicode escape sequences, as well as to normal HTML. Oh,
 and there are no external dependencies 😉
 
 ## Installation
 
-Install via Yarn:
+sql-highlight is tested to work with Node.js 14, 16 and 18.
+
+Install with Yarn:
 ```bash
 yarn add sql-highlight
 ```
-Install via NPM:
+Install with NPM:
 ```bash
 npm install sql-highlight
 ```

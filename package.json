@@ -1,7 +1,7 @@
 {
   "name": "sql-highlight",
   "version": "4.2.1",
-  "description": "A simple and lightweight syntax highlighting library for SQL",
+  "description": "A simple and lightweight library for highlighting SQL queries written in pure JavaScript",
   "main": "lib/index.js",
   "types": "./lib/index.d.ts",
   "repository": {
