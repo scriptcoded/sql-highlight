@@ -30,10 +30,11 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^8.28.0",
+    "eslint": "^8.30.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jest": "^27.1.6",
+    "eslint-plugin-jest": "^27.1.7",
+    "eslint-plugin-n": "15.6.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-standard": "^4.1.0",
