@@ -45,7 +45,7 @@ console.log(highlighted)
 **HTML mode:**
 
 ```js
-import { highlight } from 'sql-highlight'
+const { highlight } = require('sql-highlight')
 
 const sqlString = "SELECT `id`, `username` FROM `users` WHERE `email` = 'test@example.com'"
 
