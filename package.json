@@ -31,6 +31,13 @@
   "contributors": [
     "pomahtuk"
   ],
+  "funding": [
+    "https://github.com/scriptcoded/sql-highlight?sponsor=1",
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/scriptcoded"
+    }
+  ],
   "license": "MIT",
   "devDependencies": {
     "eslint": "^8.31.0",
