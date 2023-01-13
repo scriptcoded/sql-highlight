@@ -1,6 +1,7 @@
 declare module 'sql-highlight' {
   export interface HighlightOptions {
     html?: boolean;
+    htmlEscaper?: (str: string) => string
     classPrefix?: string;
     colors?: {
       keyword: string;

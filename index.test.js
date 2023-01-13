@@ -119,22 +119,22 @@ describe('unicode', () => {
 describe('html', () => {
   it('strings (single quotes)', () => {
     expect(hlHtml("'Hello, world!'"))
-      .toBe('<span class="sql-hl-string">\'Hello, world!\'</span>')
+      .toBe('<span class="sql-hl-string">&#39;Hello, world!&#39;</span>')
   })
 
   it('strings (double quotes)', () => {
     expect(hlHtml('"Hello, world!"'))
-      .toBe('<span class="sql-hl-string">"Hello, world!"</span>')
+      .toBe('<span class="sql-hl-string">&quot;Hello, world!&quot;</span>')
   })
 
   it('strings (mixing quotes)', () => {
     expect(hlHtml('\'"`\' "\'`" `"\'`'))
-      .toBe('<span class="sql-hl-string">\'"`\'</span> <span class="sql-hl-string">"\'`"</span> <span class="sql-hl-string">`"\'`</span>')
+      .toBe('<span class="sql-hl-string">&#39;&quot;`&#39;</span> <span class="sql-hl-string">&quot;&#39;`&quot;</span> <span class="sql-hl-string">`&quot;&#39;`</span>')
   })
 
   it('strings (scaping quotes)', () => {
     expect(hlHtml('\'\\\'\' "\\"" `\\``'))
-      .toBe('<span class="sql-hl-string">\'\\\'\'</span> <span class="sql-hl-string">"\\""</span> <span class="sql-hl-string">`\\``</span>')
+      .toBe('<span class="sql-hl-string">&#39;\\&#39;&#39;</span> <span class="sql-hl-string">&quot;\\&quot;&quot;</span> <span class="sql-hl-string">`\\``</span>')
   })
 
   it('integers', () => {
@@ -169,7 +169,7 @@ describe('html', () => {
 
   it('numbers within strings', () => {
     expect(hlHtml("'34'"))
-      .toBe("<span class=\"sql-hl-string\">'34'</span>")
+      .toBe('<span class="sql-hl-string">&#39;34&#39;</span>')
   })
 
   it('alphanumeric', () => {
@@ -184,12 +184,12 @@ describe('html', () => {
 
   it('basic query', () => {
     expect(hlHtml("SELECT * FROM `users` WHERE `email` = 'test@example.com'"))
-      .toBe("<span class=\"sql-hl-keyword\">SELECT</span> <span class=\"sql-hl-special\">*</span> <span class=\"sql-hl-keyword\">FROM</span> <span class=\"sql-hl-string\">`users`</span> <span class=\"sql-hl-keyword\">WHERE</span> <span class=\"sql-hl-string\">`email`</span> <span class=\"sql-hl-special\">=</span> <span class=\"sql-hl-string\">'test@example.com'</span>")
+      .toBe('<span class="sql-hl-keyword">SELECT</span> <span class="sql-hl-special">*</span> <span class="sql-hl-keyword">FROM</span> <span class="sql-hl-string">`users`</span> <span class="sql-hl-keyword">WHERE</span> <span class="sql-hl-string">`email`</span> <span class="sql-hl-special">=</span> <span class="sql-hl-string">&#39;test@example.com&#39;</span>')
   })
 
   it('complex query', () => {
     expect(hlHtml("SELECT COUNT(id), `id`, `username` FROM `users` WHERE `email` = 'test@example.com' AND `foo` = 'BAR' OR 1=1"))
-      .toBe("<span class=\"sql-hl-keyword\">SELECT</span> <span class=\"sql-hl-function\">COUNT</span><span class=\"sql-hl-bracket\">(</span>id<span class=\"sql-hl-bracket\">)</span><span class=\"sql-hl-special\">,</span> <span class=\"sql-hl-string\">`id`</span><span class=\"sql-hl-special\">,</span> <span class=\"sql-hl-string\">`username`</span> <span class=\"sql-hl-keyword\">FROM</span> <span class=\"sql-hl-string\">`users`</span> <span class=\"sql-hl-keyword\">WHERE</span> <span class=\"sql-hl-string\">`email`</span> <span class=\"sql-hl-special\">=</span> <span class=\"sql-hl-string\">'test@example.com'</span> <span class=\"sql-hl-keyword\">AND</span> <span class=\"sql-hl-string\">`foo`</span> <span class=\"sql-hl-special\">=</span> <span class=\"sql-hl-string\">'BAR'</span> <span class=\"sql-hl-keyword\">OR</span> <span class=\"sql-hl-number\">1</span><span class=\"sql-hl-special\">=</span><span class=\"sql-hl-number\">1</span>")
+      .toBe('<span class="sql-hl-keyword">SELECT</span> <span class="sql-hl-function">COUNT</span><span class="sql-hl-bracket">(</span>id<span class="sql-hl-bracket">)</span><span class="sql-hl-special">,</span> <span class="sql-hl-string">`id`</span><span class="sql-hl-special">,</span> <span class="sql-hl-string">`username`</span> <span class="sql-hl-keyword">FROM</span> <span class="sql-hl-string">`users`</span> <span class="sql-hl-keyword">WHERE</span> <span class="sql-hl-string">`email`</span> <span class="sql-hl-special">=</span> <span class="sql-hl-string">&#39;test@example.com&#39;</span> <span class="sql-hl-keyword">AND</span> <span class="sql-hl-string">`foo`</span> <span class="sql-hl-special">=</span> <span class="sql-hl-string">&#39;BAR&#39;</span> <span class="sql-hl-keyword">OR</span> <span class="sql-hl-number">1</span><span class="sql-hl-special">=</span><span class="sql-hl-number">1</span>')
   })
 
   it('query with identifiers without apostrophes', () => {
@@ -205,6 +205,11 @@ describe('html', () => {
   it('multiple queries', () => {
     expect(hlHtml('SELECT * FROM a;SELECT * FROM b;'))
       .toBe('<span class="sql-hl-keyword">SELECT</span> <span class="sql-hl-special">*</span> <span class="sql-hl-keyword">FROM</span> a<span class="sql-hl-special">;</span><span class="sql-hl-keyword">SELECT</span> <span class="sql-hl-special">*</span> <span class="sql-hl-keyword">FROM</span> b<span class="sql-hl-special">;</span>')
+  })
+
+  it('escapes HTML entities', () => {
+    expect(hlHtml("select * from a where b = 'array<map<string,string>>';"))
+      .toBe('<span class="sql-hl-keyword">select</span> <span class="sql-hl-special">*</span> <span class="sql-hl-keyword">from</span> a <span class="sql-hl-keyword">where</span> b <span class="sql-hl-special">=</span> <span class="sql-hl-string">&#39;array&lt;map&lt;string,string&gt;&gt;&#39;</span><span class="sql-hl-special">;</span>')
   })
 })
 
@@ -251,5 +256,22 @@ describe('getSegments', () => {
         { name: 'special', content: '=' },
         { name: 'number', content: '1' }
       ])
+  })
+})
+
+describe('custom escaper', () => {
+  it('uses default escaper', () => {
+    expect(highlight("'array<map<string,string>>'", { html: true }))
+      .toBe('<span class="sql-hl-string">&#39;array&lt;map&lt;string,string&gt;&gt;&#39;</span>')
+  })
+
+  it('works with dud escaper', () => {
+    expect(highlight("'array<map<string,string>>'", { html: true, htmlEscaper: (s) => s }))
+      .toBe('<span class="sql-hl-string">\'array<map<string,string>>\'</span>')
+  })
+
+  it('works with bad escaper', () => {
+    expect(highlight("'array<map<string,string>>'", { html: true, htmlEscaper: () => 'foobar' }))
+      .toBe('<span class="sql-hl-string">foobar</span>')
   })
 })

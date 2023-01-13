@@ -25,3 +25,5 @@ console.log(highlight('SELECT "This is a \\"text\\" test" AS text;'))
 console.log(highlight('DROP PROCEDURE IF EXISTS `some-database`.`some-table`;'))
 
 console.log(highlight('SELECT * FROM a;SELECT * FROM b;'))
+
+console.log(highlight("select * from a where b = 'array<map<string,string>>';", { html: true }))
