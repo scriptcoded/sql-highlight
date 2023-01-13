@@ -23,13 +23,16 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
+**sql-highlight (please complete the following information):**
+ - Version: [e.g. v4.2.2]
+
 **Node.js (please complete the following information):**
- - Version [e.g. v12.16.2]
+ - Version: [e.g. v12.16.2]
 
 **Browser (please complete the following information):**
  - OS: [e.g. MacOS]
- - Browser [e.g. Chrome]
- - Version [e.g. 85.0.4183.121]
+ - Browser: [e.g. Chrome]
+ - Version: [e.g. 85.0.4183.121]
 
 **Additional context**
 Add any other context about the problem here.
