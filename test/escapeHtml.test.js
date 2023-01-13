@@ -1,4 +1,4 @@
-const escapeHtml = require('./lib/escapeHtml')
+const escapeHtml = require('../lib/escapeHtml')
 
 describe('escapeHtml', () => {
   it('does not escape strings without special characters', () => {

@@ -1,4 +1,4 @@
-const { highlight, getSegments } = require('./lib')
+const { highlight, getSegments } = require('../lib')
 
 const OPTIONS = {
   colors: {
