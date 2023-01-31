@@ -40,7 +40,7 @@ console.log(highlighted)
 
 **Output:**
 
-![Screenshot](screenshot.png
+![Screenshot](screenshot.png)
 
 **HTML mode:**
 
