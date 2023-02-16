@@ -5,6 +5,13 @@
 
 * mixed case keyword matching ([#47](https://github.com/scriptcoded/sql-highlight/issues/47)) ([f848a14](https://github.com/scriptcoded/sql-highlight/commit/f848a140d43df140e77e003a0c6914b61560e708))
 
+## [4.3.1](https://github.com/scriptcoded/sql-highlight/compare/v4.3.0...v4.3.1) (2023-02-16)
+
+
+### Miscellaneous Chores
+
+* release 4.3.1 ([a66db9e](https://github.com/scriptcoded/sql-highlight/commit/a66db9e149f770cbf14b003de201465c8a0e8adf))
+
 ## [4.3.0](https://github.com/scriptcoded/sql-highlight/compare/v4.2.2...v4.3.0) (2023-01-13)
 
 
