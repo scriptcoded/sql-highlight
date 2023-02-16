@@ -18,8 +18,7 @@
     "pretest": "npm run lint",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "lint": "eslint .",
-    "semantic-release": "semantic-release"
+    "lint": "eslint ."
   },
   "keywords": [
     "sql",
