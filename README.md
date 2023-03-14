@@ -143,6 +143,15 @@ We use [Jest](https://jestjs.io/) for running our tests. The test suite can be r
 
 We use [ESLint](https://eslint.org/) for making sure that our code remains pretty and consistent throughout the project. If your editor doesn't automatically pick up our config you can lint the code using `npm run lint`.
 
+## A note on Dependabot
+
+[Dependabot Auto
+Merge](https://github.com/marketplace/actions/dependabot-auto-merge) is
+installed in this repository to automatically merge dependabot PRs for minor
+version updates. Only PRs that pass the tests get merged. No new releases will
+be created for dependency updates as there are no production dependencies and a
+release would therefore be completely unnecessary.
+
 ## Additional information
 
 Malcolm Nihlén - malcolm.nihlen@gmail.com
