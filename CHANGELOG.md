@@ -5,6 +5,13 @@
 
 * mixed case keyword matching ([#47](https://github.com/scriptcoded/sql-highlight/issues/47)) ([f848a14](https://github.com/scriptcoded/sql-highlight/commit/f848a140d43df140e77e003a0c6914b61560e708))
 
+## [4.3.2](https://github.com/scriptcoded/sql-highlight/compare/v4.3.1...v4.3.2) (2023-03-16)
+
+
+### Bug Fixes
+
+* change number regex to not use lookbehind ([#106](https://github.com/scriptcoded/sql-highlight/issues/106)) ([8e52120](https://github.com/scriptcoded/sql-highlight/commit/8e52120ba976ef64e3d5dd5bb8ba0c800e30a989))
+
 ## [4.3.1](https://github.com/scriptcoded/sql-highlight/compare/v4.3.0...v4.3.1) (2023-02-16)
 
 
