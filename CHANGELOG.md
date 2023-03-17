@@ -1,12 +1,4 @@
-# [4.1.0](https://github.com/scriptcoded/sql-highlight/compare/v4.0.5...v4.1.0) (2022-07-23)
-
-
-### Features
-
-* mixed case keyword matching ([#47](https://github.com/scriptcoded/sql-highlight/issues/47)) ([f848a14](https://github.com/scriptcoded/sql-highlight/commit/f848a140d43df140e77e003a0c6914b61560e708))
-
 ## [4.3.2](https://github.com/scriptcoded/sql-highlight/compare/v4.3.1...v4.3.2) (2023-03-16)
-
 
 ### Bug Fixes
 
@@ -55,6 +47,13 @@
 * nested quotes ([#40](https://github.com/scriptcoded/sql-highlight/issues/40)) ([b2c2a6c](https://github.com/scriptcoded/sql-highlight/commit/b2c2a6c4b1bf3370b3dd0da6af36838e4e08e644))
 * number regex ([#41](https://github.com/scriptcoded/sql-highlight/issues/41)) ([a6d1fd6](https://github.com/scriptcoded/sql-highlight/commit/a6d1fd640e115583d9e69d82ef1fb429f5b3da1b))
 
+## [4.1.0](https://github.com/scriptcoded/sql-highlight/compare/v4.0.5...v4.1.0) (2022-07-23)
+
+
+### Features
+
+* mixed case keyword matching ([#47](https://github.com/scriptcoded/sql-highlight/issues/47)) ([f848a14](https://github.com/scriptcoded/sql-highlight/commit/f848a140d43df140e77e003a0c6914b61560e708))
+
 ## [4.0.5](https://github.com/scriptcoded/sql-highlight/compare/v4.0.4...v4.0.5) (2022-07-23)
 
 
@@ -90,7 +89,7 @@
 
 * add overlaps keyword ([29321dd](https://github.com/scriptcoded/sql-highlight/commit/29321ddcb55fb9e9859c07887bc1d81567ba1181))
 
-# [4.0.0](https://github.com/scriptcoded/sql-highlight/compare/v3.3.5...v4.0.0) (2021-07-16)
+## [4.0.0](https://github.com/scriptcoded/sql-highlight/compare/v3.3.5...v4.0.0) (2021-07-16)
 
 
 ### Bug Fixes
