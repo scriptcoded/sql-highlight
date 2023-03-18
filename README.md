@@ -5,7 +5,7 @@
 [![Tests Status][tests-badge]][tests-url]
 [![Coverage Status][coveralls-badge]][coveralls-url]
 [![NPM Version][npm-version-badge]][npm-url]
-[![Downloads Stats][npm-downloads-badge]][npm-url]
+[![Bundle Size][bundlejs-badge]][bundlejs-url]
 
 ## What's it all about?
 sql-highlight is a small package that highlights SQL queries. It can output to
@@ -175,5 +175,6 @@ very little similarity with the original repo.
 [coveralls-badge]: https://coveralls.io/repos/github/scriptcoded/sql-highlight/badge.svg
 [coveralls-url]: https://coveralls.io/github/scriptcoded/sql-highlight
 [npm-version-badge]: https://img.shields.io/npm/v/sql-highlight.svg
-[npm-downloads-badge]: https://img.shields.io/npm/dm/sql-highlight.svg
 [npm-url]: https://npmjs.org/package/sql-highlight
+[bundlejs-badge]: https://deno.bundlejs.com/?bundle&q=sql-highlight&badge
+[bundlejs-url]: https://bundlejs.com/?bundle&q=sql-highlight
