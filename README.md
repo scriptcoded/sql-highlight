@@ -170,8 +170,8 @@ a cleaner interface that's not bound to Sequelize.
 With version 3.0.0 the library was almost completely rewritten, which leaves
 very little similarity with the original repo.
 
-[tests-badge]: https://img.shields.io/github/actions/workflow/status/scriptcoded/sql-highlight/test.yml?branch=master
-[tests-url]: https://github.com/scriptcoded/sql-highlight/actions/workflows/release.yml
+[tests-badge]: https://img.shields.io/github/actions/workflow/status/scriptcoded/sql-highlight/test.yml?branch=master&label=tests
+[tests-url]: https://github.com/scriptcoded/sql-highlight/actions/workflows/test.yml
 [coveralls-badge]: https://coveralls.io/repos/github/scriptcoded/sql-highlight/badge.svg
 [coveralls-url]: https://coveralls.io/github/scriptcoded/sql-highlight
 [npm-version-badge]: https://img.shields.io/npm/v/sql-highlight.svg
