@@ -4,6 +4,13 @@
 
 * change number regex to not use lookbehind ([#106](https://github.com/scriptcoded/sql-highlight/issues/106)) ([8e52120](https://github.com/scriptcoded/sql-highlight/commit/8e52120ba976ef64e3d5dd5bb8ba0c800e30a989))
 
+## [4.3.3](https://github.com/scriptcoded/sql-highlight/compare/v4.3.2...v4.3.3) (2023-04-14)
+
+
+### Bug Fixes
+
+* add ILIKE keyword ([#111](https://github.com/scriptcoded/sql-highlight/issues/111)) ([a7a54f9](https://github.com/scriptcoded/sql-highlight/commit/a7a54f9499cbb7a13425dc057f729fb94d4a95c9))
+
 ## [4.3.1](https://github.com/scriptcoded/sql-highlight/compare/v4.3.0...v4.3.1) (2023-02-16)
 
 
