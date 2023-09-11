@@ -21,4 +21,5 @@ declare module 'sql-highlight' {
   
   export function getSegments(sqlString: string): Array<Segment>;
   export function highlight(sqlString: string, options?: HighlightOptions): string;
+  export const DEFAULT_OPTIONS: HighlightOptions;
 }
