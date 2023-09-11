@@ -27,3 +27,5 @@ console.log(highlight('DROP PROCEDURE IF EXISTS `some-database`.`some-table`;'))
 console.log(highlight('SELECT * FROM a;SELECT * FROM b;'))
 
 console.log(highlight("select * from a where b = 'array<map<string,string>>';", { html: true }))
+
+console.log(highlight('SELECT */* table.* */ FROM a;\nSELECT * FROM b; # comment\nSELECT * FROM c; -- comment\nSELECT * FROM d; /* multi\nline\ncomment */'))

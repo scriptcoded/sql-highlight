@@ -8,6 +8,7 @@ const OPTIONS = {
     string: '[string]',
     special: '[special]',
     bracket: '[bracket]',
+    comment: '[comment]',
     clear: '[clear]'
   }
 }
@@ -83,6 +84,21 @@ describe('unicode', () => {
   it('alphanumeric', () => {
     expect(hlUni('(f1)'))
       .toBe('[bracket]([clear]f1[bracket])[clear]')
+  })
+
+  it('comment /**/', () => {
+    expect(hlUni('/*/*comment\nsecondline*/*/'))
+      .toBe('[comment]/*/*comment\nsecondline*/[clear][special]*[clear][special]/[clear]')
+  })
+
+  it('comment #', () => {
+    expect(hlUni('#comment\n#comment'))
+      .toBe('[comment]#comment\n[clear][comment]#comment[clear]')
+  })
+
+  it('comment --', () => {
+    expect(hlUni('--comment\n--comment'))
+      .toBe('[comment]--comment\n[clear][comment]--comment[clear]')
   })
 
   it('functions', () => {
@@ -175,6 +191,21 @@ describe('html', () => {
   it('alphanumeric', () => {
     expect(hlHtml('(f1)'))
       .toBe('<span class="sql-hl-bracket">(</span>f1<span class="sql-hl-bracket">)</span>')
+  })
+
+  it('comment /**/', () => {
+    expect(hlHtml('/*/*comment\nsecondline*/*/'))
+      .toBe('<span class="sql-hl-comment">/*/*comment\nsecondline*/</span><span class="sql-hl-special">*</span><span class="sql-hl-special">/</span>')
+  })
+
+  it('comment #', () => {
+    expect(hlHtml('#comment\n#comment'))
+      .toBe('<span class="sql-hl-comment">#comment\n</span><span class="sql-hl-comment">#comment</span>')
+  })
+
+  it('comment --', () => {
+    expect(hlHtml('--comment\n--comment'))
+      .toBe('<span class="sql-hl-comment">--comment\n</span><span class="sql-hl-comment">--comment</span>')
   })
 
   it('functions', () => {
