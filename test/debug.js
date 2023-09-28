@@ -26,4 +26,6 @@ console.log(highlight('DROP PROCEDURE IF EXISTS `some-database`.`some-table`;'))
 
 console.log(highlight('SELECT * FROM a;SELECT * FROM b;'))
 
+console.log(highlight('SELECT foo /* comment, not "keyword" WHERE GROUP */ FROM bar; -- comment\nSELECT * FROM baz;'))
+
 console.log(highlight("select * from a where b = 'array<map<string,string>>';", { html: true }))
