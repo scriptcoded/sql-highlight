@@ -8,6 +8,7 @@ const OPTIONS = {
     string: '[string]',
     special: '[special]',
     bracket: '[bracket]',
+    comment: '[comment]',
     clear: '[clear]'
   }
 }
@@ -114,6 +115,26 @@ describe('unicode', () => {
     expect(hlUni('SELECT * FROM a;SELECT * FROM b;'))
       .toBe('[keyword]SELECT[clear] [special]*[clear] [keyword]FROM[clear] a[special];[clear][keyword]SELECT[clear] [special]*[clear] [keyword]FROM[clear] b[special];[clear]')
   })
+
+  it('comment single line', () => {
+    expect(hlUni('-- comment 1 "comment" /* still */ comment 2\nSELECT `not comment`; -- comment 3'))
+      .toBe('[comment]-- comment 1 "comment" /* still */ comment 2[clear]\n[keyword]SELECT[clear] [string]`not comment`[clear][special];[clear] [comment]-- comment 3[clear]')
+  })
+
+  it('comment mysql', () => {
+    expect(hlUni('# comment 1 "comment" /* still */ comment 2\nSELECT `not comment`; # comment 3'))
+      .toBe('[comment]# comment 1 "comment" /* still */ comment 2[clear]\n[keyword]SELECT[clear] [string]`not comment`[clear][special];[clear] [comment]# comment 3[clear]')
+  })
+
+  it('comment multiline', () => {
+    expect(hlUni('SELECT /* this is, a "comment" */ "not /*comment*/" /***also*comment***/'))
+      .toBe('[keyword]SELECT[clear] [comment]/* this is, a "comment" */[clear] [string]"not /*comment*/"[clear] [comment]/***also*comment***/[clear]')
+  })
+
+  it('not a comment', () => {
+    expect(hlUni('"id -- not comment /* still */ not"'))
+      .toBe('[string]"id -- not comment /* still */ not"[clear]')
+  })
 })
 
 describe('html', () => {
@@ -210,6 +231,26 @@ describe('html', () => {
   it('escapes HTML entities', () => {
     expect(hlHtml("select * from a where b = 'array<map<string,string>>';"))
       .toBe('<span class="sql-hl-keyword">select</span> <span class="sql-hl-special">*</span> <span class="sql-hl-keyword">from</span> a <span class="sql-hl-keyword">where</span> b <span class="sql-hl-special">=</span> <span class="sql-hl-string">&#39;array&lt;map&lt;string,string&gt;&gt;&#39;</span><span class="sql-hl-special">;</span>')
+  })
+
+  it('comment single line', () => {
+    expect(hlHtml('-- comment 1 "comment" /* still */ comment 2\nSELECT `not comment`; -- comment 3'))
+      .toBe('<span class="sql-hl-comment">-- comment 1 &quot;comment&quot; /* still */ comment 2</span>\n<span class="sql-hl-keyword">SELECT</span> <span class="sql-hl-string">`not comment`</span><span class="sql-hl-special">;</span> <span class="sql-hl-comment">-- comment 3</span>')
+  })
+
+  it('comment mysql', () => {
+    expect(hlHtml('# comment 1 "comment" /* still */ comment 2\nSELECT `not comment`; # comment 3'))
+      .toBe('<span class="sql-hl-comment"># comment 1 &quot;comment&quot; /* still */ comment 2</span>\n<span class="sql-hl-keyword">SELECT</span> <span class="sql-hl-string">`not comment`</span><span class="sql-hl-special">;</span> <span class="sql-hl-comment"># comment 3</span>')
+  })
+
+  it('comment multiline', () => {
+    expect(hlHtml('SELECT /* this is, a "comment" */ "not /*comment*/" /***also*comment***/'))
+      .toBe('<span class="sql-hl-keyword">SELECT</span> <span class="sql-hl-comment">/* this is, a &quot;comment&quot; */</span> <span class="sql-hl-string">&quot;not /*comment*/&quot;</span> <span class="sql-hl-comment">/***also*comment***/</span>')
+  })
+
+  it('not a comment', () => {
+    expect(hlHtml('"id -- not comment /* still */ not"'))
+      .toBe('<span class="sql-hl-string">&quot;id -- not comment /* still */ not&quot;</span>')
   })
 })
 

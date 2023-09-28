@@ -10,6 +10,7 @@ declare module 'sql-highlight' {
       string: string;
       special: string;
       bracket: string;
+      comment: string;
       clear: string;
     };
   }
