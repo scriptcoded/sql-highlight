@@ -1,6 +1,6 @@
 {
   "name": "sql-highlight",
-  "version": "4.3.3",
+  "version": "4.4.0",
   "description": "A simple and lightweight library for highlighting SQL queries written in pure JavaScript",
   "main": "lib/index.js",
   "types": "./lib/index.d.ts",
