@@ -4,6 +4,18 @@
 
 * change number regex to not use lookbehind ([#106](https://github.com/scriptcoded/sql-highlight/issues/106)) ([8e52120](https://github.com/scriptcoded/sql-highlight/commit/8e52120ba976ef64e3d5dd5bb8ba0c800e30a989))
 
+## [4.4.0](https://github.com/scriptcoded/sql-highlight/compare/v4.3.3...v4.4.0) (2023-10-04)
+
+
+### Features
+
+* SQL comments support ([9dad7b2](https://github.com/scriptcoded/sql-highlight/commit/9dad7b2bf9bcd7a6a1beee31e14ae41bbb23a7b4)), closes [#133](https://github.com/scriptcoded/sql-highlight/issues/133)
+
+
+### Performance Improvements
+
+* improved tokenizer ([1472619](https://github.com/scriptcoded/sql-highlight/commit/147261929f0817a09d679e4fe5a0fe1d2bb04c61)), closes [#133](https://github.com/scriptcoded/sql-highlight/issues/133)
+
 ## [4.3.3](https://github.com/scriptcoded/sql-highlight/compare/v4.3.2...v4.3.3) (2023-04-14)
 
 
