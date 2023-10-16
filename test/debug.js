@@ -21,6 +21,7 @@ console.log(highlight('SELECT id FROM listings WHERE status = "not available"'))
 
 console.log(highlight('SELECT \'{"json_index":"json_value"}\' AS test;'))
 console.log(highlight('SELECT "This is a \\"text\\" test" AS text;'))
+console.log(highlight('SELECT \'\\\r\t\n\' AS text;'))
 
 console.log(highlight('DROP PROCEDURE IF EXISTS `some-database`.`some-table`;'))
 

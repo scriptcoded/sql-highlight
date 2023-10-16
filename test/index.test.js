@@ -38,7 +38,12 @@ describe('unicode', () => {
 
   it('strings (scaping quotes)', () => {
     expect(hlUni('\'\\\'\' "\\"" `\\``'))
-      .toBe('[string]\'\\\'\'[clear] [string]"\\""[clear] [string]`\\``[clear]')
+      .toBe('[string]\'\\\\\'\'[clear] [string]"\\\\""[clear] [string]`\\\\``[clear]')
+  })
+
+  it('strings (line breaks)', () => {
+    expect(hlUni('\'\\\r\n\t\''))
+      .toBe('[string]\'\\\\\\r\\n\\t\'[clear]')
   })
 
   it('integers', () => {
@@ -155,7 +160,12 @@ describe('html', () => {
 
   it('strings (scaping quotes)', () => {
     expect(hlHtml('\'\\\'\' "\\"" `\\``'))
-      .toBe('<span class="sql-hl-string">&#39;\\&#39;&#39;</span> <span class="sql-hl-string">&quot;\\&quot;&quot;</span> <span class="sql-hl-string">`\\``</span>')
+      .toBe('<span class="sql-hl-string">&#39;&#92;&#39;&#39;</span> <span class="sql-hl-string">&quot;&#92;&quot;&quot;</span> <span class="sql-hl-string">`&#92;``</span>')
+  })
+
+  it('strings (line breaks)', () => {
+    expect(hlHtml('\'\\\r\n\t\''))
+      .toBe('<span class="sql-hl-string">&#39;&#92;&#92;r&#92;n&#92;t&#39;</span>')
   })
 
   it('integers', () => {
