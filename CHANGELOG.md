@@ -1,3 +1,15 @@
+# [5.0.0-beta.1](https://github.com/scriptcoded/sql-highlight/compare/v4.4.0...v5.0.0-beta.1) (2023-10-24)
+
+
+### Features
+
+* add support for Node.js 20 ([eb12c85](https://github.com/scriptcoded/sql-highlight/commit/eb12c85f9c16455dce05b4044763e3e924085409))
+
+
+### BREAKING CHANGES
+
+* Dropping support for Node.js 14
+  
 ## [4.4.2](https://github.com/scriptcoded/sql-highlight/compare/v4.4.1...v4.4.2) (2024-03-10)
 
 
