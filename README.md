@@ -59,13 +59,13 @@ document.body.innerHTML += highlighted
 **Output:**
 ```html
 <span class="sql-hl-keyword">SELECT</span>
-<span class="sql-hl-string">`id`</span>
+<span class="sql-hl-identifier">`id`</span>
 <span class="sql-hl-special">,</span>
-<span class="sql-hl-string">`username`</span>
+<span class="sql-hl-identifier">`username`</span>
 <span class="sql-hl-keyword">FROM</span>
-<span class="sql-hl-string">`users`</span>
+<span class="sql-hl-identifier">`users`</span>
 <span class="sql-hl-keyword">WHERE</span>
-<span class="sql-hl-string">`email`</span>
+<span class="sql-hl-identifier">`email`</span>
 <span class="sql-hl-special">=</span>
 <span class="sql-hl-string">'test@example.com'</span>
 ```
@@ -112,22 +112,22 @@ console.log(segments)
 ```js
 [
     { name: 'keyword', content: 'SELECT' },
-    { name: 'default', content: ' ' },
-    { name: 'string', content: '`id`' },
+    { name: 'whitespace', content: ' ' },
+    { name: 'identifier', content: '`id`' },
     { name: 'special', content: ',' },
-    { name: 'default', content: ' ' },
-    { name: 'string', content: '`username`' },
-    { name: 'default', content: ' ' },
+    { name: 'whitespace', content: ' ' },
+    { name: 'identifier', content: '`username`' },
+    { name: 'whitespace', content: ' ' },
     { name: 'keyword', content: 'FROM' },
-    { name: 'default', content: ' ' },
-    { name: 'string', content: '`users`' },
-    { name: 'default', content: ' ' },
+    { name: 'whitespace', content: ' ' },
+    { name: 'identifier', content: '`users`' },
+    { name: 'whitespace', content: ' ' },
     { name: 'keyword', content: 'WHERE' },
-    { name: 'default', content: ' ' },
-    { name: 'string', content: '`email`' },
-    { name: 'default', content: ' ' },
+    { name: 'whitespace', content: ' ' },
+    { name: 'identifier', content: '`email`' },
+    { name: 'whitespace', content: ' ' },
     { name: 'special', content: '=' },
-    { name: 'default', content: ' ' },
+    { name: 'whitespace', content: ' ' },
     { name: 'string', content: "'test@example.com'" }
 ]
 ```

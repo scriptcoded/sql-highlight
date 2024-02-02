@@ -1,3 +1,36 @@
+# [5.0.0-beta.2](https://github.com/scriptcoded/sql-highlight/compare/v5.0.0-beta.1...v5.0.0-beta.2) (2023-10-24)
+
+
+### Features
+
+* add way to style identifiers ([01df1cd](https://github.com/scriptcoded/sql-highlight/commit/01df1cdf531a7e3631186390204bd0c6ee2bdf81)), closes [#147](https://github.com/scriptcoded/sql-highlight/issues/147)
+
+
+### BREAKING CHANGES
+
+* The `default` segment has been split into `identifier` and `whitespace`
+segments.  There's also a new `unknown` segment that will only show up for malformed
+SQL such as an unclosed string.
+
+However, the highlight() function works largely the same as before, both normal mode and HTML mode,
+except for the bug fix to stop classifying identifiers as strings.  In other words, SQL like
+
+select * from EMP where NAME="John Smith"
+
+will get highlighted the same as before, i.e. no syntax highlighting for EMP or NAME.
+
+# [5.0.0-beta.1](https://github.com/scriptcoded/sql-highlight/compare/v4.4.0...v5.0.0-beta.1) (2023-10-24)
+
+
+### Features
+
+* add support for Node.js 20 ([eb12c85](https://github.com/scriptcoded/sql-highlight/commit/eb12c85f9c16455dce05b4044763e3e924085409))
+
+
+### BREAKING CHANGES
+
+* Dropping support for Node.js 14
+
 ## [4.3.2](https://github.com/scriptcoded/sql-highlight/compare/v4.3.1...v4.3.2) (2023-03-16)
 
 ### Bug Fixes

@@ -8,6 +8,7 @@ declare module 'sql-highlight' {
       function: string;
       number: string;
       string: string;
+      identifier: string;
       special: string;
       bracket: string;
       comment: string;
