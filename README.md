@@ -14,7 +14,7 @@ and there are no external dependencies 😉
 
 ## Installation
 
-sql-highlight is tested to work with Node.js 14, 16 and 18.
+sql-highlight is tested to work with Node.js 16, 18 and 20.
 
 Install with Yarn:
 ```bash
