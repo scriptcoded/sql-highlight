@@ -10,13 +10,15 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16, 18, 20]
+        # If you change these, don't forget to update carryforward in the finish
+        # step as well.
+        node-version: [14, 16, 18, 20]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
   
@@ -28,3 +30,17 @@ jobs:
       uses: coverallsapp/github-action@v2
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        parallel: true
+        flag-name: ${{ matrix.node-version }}
+
+  finish:
+    needs: test
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Coveralls Finished
+      uses: coverallsapp/github-action@v2
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        parallel-finished: true
+        carryforward: "14,16,18,20"
