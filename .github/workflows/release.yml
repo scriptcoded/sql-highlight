@@ -4,6 +4,7 @@ on:
     branches:
       - '*.x'
       - master
+      - next
       - beta
       - alpha
 
