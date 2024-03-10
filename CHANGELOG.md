@@ -1,3 +1,10 @@
+## [4.4.2](https://github.com/scriptcoded/sql-highlight/compare/v4.4.1...v4.4.2) (2024-03-10)
+
+
+### Bug Fixes
+
+* add COMMIT keyword ([b9ccf62](https://github.com/scriptcoded/sql-highlight/commit/b9ccf622c7d486fc950ed34e7a9f2ad6551d6f6a))
+
 ## [4.4.1](https://github.com/scriptcoded/sql-highlight/compare/v4.4.0...v4.4.1) (2024-03-10)
 
 
