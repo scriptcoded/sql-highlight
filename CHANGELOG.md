@@ -1,3 +1,10 @@
+## [4.4.1](https://github.com/scriptcoded/sql-highlight/compare/v4.4.0...v4.4.1) (2024-03-10)
+
+
+### Bug Fixes
+
+* add RETURNING keyword ([e36fb72](https://github.com/scriptcoded/sql-highlight/commit/e36fb727c207671d6f3b4f7781637a663e5a63a4))
+
 ## [4.3.2](https://github.com/scriptcoded/sql-highlight/compare/v4.3.1...v4.3.2) (2023-03-16)
 
 ### Bug Fixes
