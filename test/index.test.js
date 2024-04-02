@@ -256,6 +256,29 @@ describe('html', () => {
 })
 
 describe('getSegments', () => {
+  it('numbers and operators', () => {
+    expect(getSegments('34 - -.5 + +0.5 * 1.23E45 / 4E-3'))
+      .toStrictEqual([
+        { name: 'number', content: '34' },
+        { name: 'whitespace', content: ' ' },
+        { name: 'special', content: '-' },
+        { name: 'whitespace', content: ' ' },
+        { name: 'number', content: '-.5' },
+        { name: 'whitespace', content: ' ' },
+        { name: 'special', content: '+' },
+        { name: 'whitespace', content: ' ' },
+        { name: 'number', content: '+0.5' },
+        { name: 'whitespace', content: ' ' },
+        { name: 'special', content: '*' },
+        { name: 'whitespace', content: ' ' },
+        { name: 'number', content: '1.23E45' },
+        { name: 'whitespace', content: ' ' },
+        { name: 'special', content: '/' },
+        { name: 'whitespace', content: ' ' },
+        { name: 'number', content: '4E-3' }
+      ])
+  })
+
   it('complex query', () => {
     expect(getSegments("SELECT COUNT(id), `id`, `username` FROM `users` WHERE `email` = 'test@example.com' AND `foo` = 'BAR' OR 1=1"))
       .toStrictEqual([
