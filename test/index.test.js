@@ -258,7 +258,9 @@ describe('html', () => {
 })
 
 describe('getSegments', () => {
-  it('numbers and operators', () => {
+  // Test that we can parse all forms of numbers.
+  // See https://dev.mysql.com/doc/refman/8.0/en/number-literals.html for the syntax (at least for MYSQL).
+  it('numbers', () => {
     expect(getSegments('34 - -.5 + +0.5 * 1.23E45 / 4E-3'))
       .toStrictEqual([
         { name: 'number', content: '34' },
@@ -278,6 +280,219 @@ describe('getSegments', () => {
         { name: 'special', content: '/' },
         { name: 'whitespace', content: ' ' },
         { name: 'number', content: '4E-3' }
+      ])
+  })
+
+  // Test that we can parse the non-logical operators, i.e. +, -, <>, etc. but not AND, OR, etc.
+  //
+  // All the non-logical operators are parsed into "special" segments, although the converse isn't true,
+  // because ",", ";", ":", and "." are also parsed as "special" segments.
+  // The logical operators like AND and BETWEEN are parsed as "keyword" segments.
+  //
+  // In particular, this describe() block tests that:
+  //
+  // * All non-logical operators listed at https://www.w3schools.com/sql/sql_operators.asp etc. are recognized.
+  // * Multi-character operators like >= are parsed as a single segment, even though > and = are both operators too.
+  // * Minus and dot are treated as part of a number when they are next to a digit, ex: "x > -5" or even "x>-5".
+  // * Minus is treated as a binary operator when there are spaces around it, ex: "x - 5".
+  //
+  // Conversely, it avoids testing strings like "x-5" because our regex-lexer architecture isn't
+  // sophisticated enough to realize the minus must be a binary operator.
+  describe('non-logical operators', () => {
+    it('arithmetic', () => {
+      expect(getSegments('a + 1 - -.2 * 34 /.56 % 7'))
+        .toStrictEqual([
+          { name: 'identifier', content: 'a' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'special', content: '+' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'number', content: '1' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'special', content: '-' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'number', content: '-.2' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'special', content: '*' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'number', content: '34' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'special', content: '/' },
+          { name: 'number', content: '.56' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'special', content: '%' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'number', content: '7' }
+        ])
+    })
+
+    it('bitwise', () => {
+      expect(getSegments('a & 8 | 9 ^b>>c<<d'))
+        .toStrictEqual([
+          { name: 'identifier', content: 'a' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'special', content: '&' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'number', content: '8' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'special', content: '|' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'number', content: '9' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'special', content: '^' },
+          { name: 'identifier', content: 'b' },
+          { name: 'special', content: '>>' },
+          { name: 'identifier', content: 'c' },
+          { name: 'special', content: '<<' },
+          { name: 'identifier', content: 'd' }
+        ])
+    })
+
+    it('single character comparison', () => {
+      expect(getSegments('a = b'))
+        .toStrictEqual([
+          { name: 'identifier', content: 'a' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'special', content: '=' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'identifier', content: 'b' }
+        ])
+      expect(getSegments('a > b'))
+        .toStrictEqual([
+          { name: 'identifier', content: 'a' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'special', content: '>' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'identifier', content: 'b' }
+        ])
+      expect(getSegments('a<b'))
+        .toStrictEqual([
+          { name: 'identifier', content: 'a' },
+          { name: 'special', content: '<' },
+          { name: 'identifier', content: 'b' }
+        ])
+    })
+
+    it('multi character comparison', () => {
+      expect(getSegments('a>=-5'))
+        .toStrictEqual([
+          { name: 'identifier', content: 'a' },
+          { name: 'special', content: '>=' },
+          { name: 'number', content: '-5' }
+        ])
+      expect(getSegments('a <= b'))
+        .toStrictEqual([
+          { name: 'identifier', content: 'a' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'special', content: '<=' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'identifier', content: 'b' }
+        ])
+      expect(getSegments('a!=.5'))
+        .toStrictEqual([
+          { name: 'identifier', content: 'a' },
+          { name: 'special', content: '!=' },
+          { name: 'number', content: '.5' }
+        ])
+      expect(getSegments('a!<b'))
+        .toStrictEqual([
+          { name: 'identifier', content: 'a' },
+          { name: 'special', content: '!<' },
+          { name: 'identifier', content: 'b' }
+        ])
+      expect(getSegments('a!>b'))
+        .toStrictEqual([
+          { name: 'identifier', content: 'a' },
+          { name: 'special', content: '!>' },
+          { name: 'identifier', content: 'b' }
+        ])
+    })
+
+    it('compound operators', () => {
+      expect(getSegments('UPDATE STUDENTS SET MARKS+=10,A-=5,B*=6,C/=7,D%=8,E&=F,G^-=H,I|*=J WHERE MARKS<85;'))
+        .toStrictEqual([
+          { name: 'keyword', content: 'UPDATE' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'identifier', content: 'STUDENTS' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'keyword', content: 'SET' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'identifier', content: 'MARKS' },
+          { name: 'special', content: '+=' },
+          { name: 'number', content: '10' },
+          { name: 'special', content: ',' },
+          { name: 'identifier', content: 'A' },
+          { name: 'special', content: '-=' },
+          { name: 'number', content: '5' },
+          { name: 'special', content: ',' },
+          { name: 'identifier', content: 'B' },
+          { name: 'special', content: '*=' },
+          { name: 'number', content: '6' },
+          { name: 'special', content: ',' },
+          { name: 'identifier', content: 'C' },
+          { name: 'special', content: '/=' },
+          { name: 'number', content: '7' },
+          { name: 'special', content: ',' },
+          { name: 'identifier', content: 'D' },
+          { name: 'special', content: '%=' },
+          { name: 'number', content: '8' },
+          { name: 'special', content: ',' },
+          { name: 'identifier', content: 'E' },
+          { name: 'special', content: '&=' },
+          { name: 'identifier', content: 'F' },
+          { name: 'special', content: ',' },
+          { name: 'identifier', content: 'G' },
+          { name: 'special', content: '^-=' },
+          { name: 'identifier', content: 'H' },
+          { name: 'special', content: ',' },
+          { name: 'identifier', content: 'I' },
+          { name: 'special', content: '|*=' },
+          { name: 'identifier', content: 'J' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'keyword', content: 'WHERE' },
+          { name: 'whitespace', content: ' ' },
+          { name: 'identifier', content: 'MARKS' },
+          { name: 'special', content: '<' },
+          { name: 'number', content: '85' },
+          { name: 'special', content: ';' }
+        ])
+    })
+  })
+
+  it('other special characters', () => {
+    expect(getSegments('select foo.a, foo.b from foo;'))
+      .toStrictEqual([
+        { name: 'keyword', content: 'select' },
+        { name: 'whitespace', content: ' ' },
+        { name: 'identifier', content: 'foo' },
+        { name: 'special', content: '.' },
+        { name: 'identifier', content: 'a' },
+        { name: 'special', content: ',' },
+        { name: 'whitespace', content: ' ' },
+        { name: 'identifier', content: 'foo' },
+        { name: 'special', content: '.' },
+        { name: 'identifier', content: 'b' },
+        { name: 'whitespace', content: ' ' },
+        { name: 'keyword', content: 'from' },
+        { name: 'whitespace', content: ' ' },
+        { name: 'identifier', content: 'foo' },
+        { name: 'special', content: ';' }
+      ])
+    expect(getSegments('INSERT INTO MyTable (ID) VALUES (:myId)'))
+      .toStrictEqual([
+        { name: 'keyword', content: 'INSERT INTO' },
+        { name: 'whitespace', content: ' ' },
+        { name: 'function', content: 'MyTable' },
+        { name: 'whitespace', content: ' ' },
+        { name: 'bracket', content: '(' },
+        { name: 'identifier', content: 'ID' },
+        { name: 'bracket', content: ')' },
+        { name: 'whitespace', content: ' ' },
+        { name: 'keyword', content: 'VALUES' },
+        { name: 'whitespace', content: ' ' },
+        { name: 'bracket', content: '(' },
+        { name: 'special', content: ':' },
+        { name: 'identifier', content: 'myId' },
+        { name: 'bracket', content: ')' }
       ])
   })
 
