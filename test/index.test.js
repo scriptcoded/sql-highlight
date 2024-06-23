@@ -1,3 +1,5 @@
+const { describe, it, expect } = require('@jest/globals')
+
 const { highlight, getSegments } = require('../lib')
 
 const OPTIONS = {
