@@ -1,3 +1,5 @@
+const { describe, it, expect } = require('@jest/globals')
+
 const escapeHtml = require('../lib/escapeHtml')
 
 describe('escapeHtml', () => {
