@@ -1,3 +1,13 @@
+# [5.0.0](https://github.com/scriptcoded/sql-highlight/compare/v4.4.2...v5.0.0) (2024-06-23)
+
+
+* chore!: add support for Node 22 ([628360f](https://github.com/scriptcoded/sql-highlight/commit/628360f76ded8ae61c9ae2b0f7552eafbe8fb432))
+
+
+### BREAKING CHANGES
+
+* drop support for Node 14.
+
 ## [4.4.2](https://github.com/scriptcoded/sql-highlight/compare/v4.4.1...v4.4.2) (2024-03-10)
 
 
