@@ -1,7 +1,7 @@
 declare module 'sql-highlight' {
   export interface HighlightOptions {
     html?: boolean;
-    htmlEscaper?: (str: string) => string
+    htmlEscaper?: (str: string) => string;
     classPrefix?: string;
     colors?: {
       keyword: string;
@@ -20,8 +20,11 @@ declare module 'sql-highlight' {
     name: string;
     content: string;
   }
-  
+
   export function getSegments(sqlString: string): Array<Segment>;
-  export function highlight(sqlString: string, options?: HighlightOptions): string;
+  export function highlight(
+    sqlString: string,
+    options?: HighlightOptions
+  ): string;
   export const DEFAULT_OPTIONS: HighlightOptions;
 }

@@ -5,4 +5,4 @@ module.exports = {
     'subject-case': [1, 'always', 'lower-case'],
     'header-case': [1, 'always', 'lower-case']
   }
-}
+};
