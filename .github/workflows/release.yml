@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - '*.x'
-      - master
+      - main
       - next
       - beta
       - alpha
