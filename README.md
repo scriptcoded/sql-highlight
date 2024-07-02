@@ -138,11 +138,11 @@ See the [contribution guidelines](CONTRIBUTING.md).
 
 ## Tests
 
-We use [Jest](https://jestjs.io/) for running our tests. The test suite can be run by running `npm run test`. This will run both Jest and ESLint.
+We use [Jest](https://jestjs.io/) for running our tests. The test suite can be run by running `npm run test`. This will run both Jest and Biome.
 
 ## Code style
 
-We use [ESLint](https://eslint.org/) for making sure that our code remains pretty and consistent throughout the project. If your editor doesn't automatically pick up our config you can lint the code using `npm run lint`.
+We use [Biome](https://biomejs.dev/) for making sure that our code remains pretty and consistent throughout the project. If your editor doesn't automatically pick up our config you can lint the code using `npm run lint`.
 
 ## A note on Dependabot
 
