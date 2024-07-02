@@ -7,7 +7,7 @@ You must follow the [commit message guidelines](#commit-message-guidelines).
 
 ## Pull Request Process
 
-1. Fork the repo and create your branch from `master`.
+1. Fork the repo and create your branch from `main`.
 1. Implement your changes.
 1. If applicable to your changes, add, remove or update tests.
 1. If applicable to your change, update the readme accordingly.
