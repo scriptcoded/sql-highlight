@@ -1,3 +1,32 @@
+# [6.0.0](https://github.com/scriptcoded/sql-highlight/compare/v5.0.0...v6.0.0) (2024-07-02)
+
+
+### Bug Fixes
+
+* improve number detection ([02d459a](https://github.com/scriptcoded/sql-highlight/commit/02d459abe51ec9714fe174a7b5fe07661b6e7dae)), closes [#149](https://github.com/scriptcoded/sql-highlight/issues/149)
+* improve operator detection ([183a4fb](https://github.com/scriptcoded/sql-highlight/commit/183a4fb05692a61c6d2251c6c50f076ef58e5ae5)), closes [#150](https://github.com/scriptcoded/sql-highlight/issues/150)
+* typo in unknown segments ([70af287](https://github.com/scriptcoded/sql-highlight/commit/70af287d5e6cd1f6880942349498a0a37e0e08a9)), closes [#148](https://github.com/scriptcoded/sql-highlight/issues/148) [#178](https://github.com/scriptcoded/sql-highlight/issues/178) [#148](https://github.com/scriptcoded/sql-highlight/issues/148)
+
+
+### Features
+
+* add way to style identifiers ([25677d4](https://github.com/scriptcoded/sql-highlight/commit/25677d40097ff9e623fc91e13c033d86d4ba47a2)), closes [#147](https://github.com/scriptcoded/sql-highlight/issues/147)
+* release 5.1.0 ([3a58def](https://github.com/scriptcoded/sql-highlight/commit/3a58def5bfd4fc3c909470e61481546b46fdebc1))
+
+
+### BREAKING CHANGES
+
+* The `default` segment has been split into `identifier` and `whitespace`
+segments.  There's also a new `unknown` segment that will only show up for malformed
+SQL such as an unclosed string.
+
+However, the highlight() function works largely the same as before, both normal mode and HTML mode,
+except for the bug fix to stop classifying identifiers as strings.  In other words, SQL like
+
+select * from EMP where NAME="John Smith"
+
+will get highlighted the same as before, i.e. no syntax highlighting for EMP or NAME.
+
 # [5.0.0](https://github.com/scriptcoded/sql-highlight/compare/v4.4.2...v5.0.0) (2024-07-02)
 
 
