@@ -7,6 +7,9 @@
 [![NPM Version][npm-version-badge]][npm-url]
 [![Bundle Size][bundlejs-badge]][bundlejs-url]
 
+> [!IMPORTANT]
+> Due to some recent issues with the release flow, the 5.0.0 release was somewhat prematurely released. With NPM not allowing unpublishing the current release is 6.0.0.
+
 ## What's it all about?
 sql-highlight is a small package that highlights SQL queries. It can output to
 both the terminal with Unicode escape sequences, as well as to normal HTML. Oh,
