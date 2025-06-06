@@ -73,6 +73,17 @@ document.body.innerHTML += highlighted
 <span class="sql-hl-string">'test@example.com'</span>
 ```
 
+Sample styles to get you going can be found in
+[sample-style.css](./sample-style.css). To use them, append the output to a
+`code` tag with the class name `sql`, like this:
+```html
+<code class="sql">
+  <span class="sql-hl-keyword">SELECT</span>
+  <span class="sql-hl-identifier">`id`</span>
+  <!-- etc... -->
+</code>
+```
+
 ## Options
 The following options may be passed to the `highlight` function.
 
