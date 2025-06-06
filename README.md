@@ -30,7 +30,7 @@ npm install sql-highlight
 
 ## Usage
 
-**In its most basic form:**
+### In its most basic form
 ```js
 const { highlight } = require('sql-highlight')
 
@@ -45,7 +45,7 @@ console.log(highlighted)
 
 ![Screenshot](screenshot.png)
 
-**HTML mode:**
+### HTML mode
 
 ```js
 const { highlight } = require('sql-highlight')
