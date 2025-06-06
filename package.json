@@ -8,9 +8,7 @@
     "type": "git",
     "url": "git@github.com:scriptcoded/sql-highlight.git"
   },
-  "files": [
-    "/lib"
-  ],
+  "files": ["/lib"],
   "engines": {
     "node": ">=14"
   },
@@ -21,16 +19,9 @@
     "lint": "biome check",
     "lint-fix": "biome check --write"
   },
-  "keywords": [
-    "sql",
-    "syntax",
-    "highlight",
-    "highlighter"
-  ],
+  "keywords": ["sql", "syntax", "highlight", "highlighter"],
   "author": "Malcolm Nihlén <malcolm.nihlen@gmail.com>",
-  "contributors": [
-    "pomahtuk"
-  ],
+  "contributors": ["pomahtuk"],
   "funding": [
     "https://github.com/scriptcoded/sql-highlight?sponsor=1",
     {
