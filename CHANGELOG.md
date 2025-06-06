@@ -1,3 +1,10 @@
+# [6.1.0](https://github.com/scriptcoded/sql-highlight/compare/v6.0.0...v6.1.0) (2025-06-06)
+
+
+### Features
+
+* added declare for procedual plsql as keyword ([812dfec](https://github.com/scriptcoded/sql-highlight/commit/812dfeca365f423450de09a1051295d0dd7edc4b))
+
 # [6.0.0](https://github.com/scriptcoded/sql-highlight/compare/v5.0.0...v6.0.0) (2024-07-02)
 
 
