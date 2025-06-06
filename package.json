@@ -17,7 +17,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "lint": "biome check",
-    "lint-fix": "biome check --write"
+    "lint:fix": "biome check --write"
   },
   "keywords": ["sql", "syntax", "highlight", "highlighter"],
   "author": "Malcolm Nihlén <malcolm.nihlen@gmail.com>",
@@ -31,10 +31,10 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@biomejs/biome": "1.8.3",
+    "@biomejs/biome": "1.9.4",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "jest": "^29.7.0",
-    "semantic-release": "^24.0.0"
+    "semantic-release": "^24.2.5"
   }
 }
