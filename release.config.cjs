@@ -25,6 +25,7 @@ module.exports = {
       {
         assets: ['CHANGELOG.md', 'package.json', 'package-lock.json'],
         message:
+          // biome-ignore lint/suspicious/noTemplateCurlyInString: This is a template for semantic-release and not supposed to be a template literal
           'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
       }
     ]
