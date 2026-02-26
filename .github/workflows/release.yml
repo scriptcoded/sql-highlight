@@ -40,6 +40,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
+          registry-url: https://registry.npmjs.org
       - name: Install dependencies
         run: npm clean-install
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
@@ -47,7 +48,6 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GIT_AUTHOR_NAME: ${{ vars.RELEASE_GIT_NAME }}
           GIT_AUTHOR_EMAIL: ${{ secrets.RELEASE_GIT_EMAIL }}
           GIT_COMMITTER_NAME: ${{ vars.RELEASE_GIT_NAME }}
