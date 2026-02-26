@@ -15,32 +15,34 @@ jobs:
         node-version: [16, 18, 20, 22, 24]
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-  
-    - run: npm ci
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - run: npm run test:coverage
+      - run: npm ci
 
-    - name: Coveralls GitHub Action
-      uses: coverallsapp/github-action@v2
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        parallel: true
-        flag-name: ${{ matrix.node-version }}
+      - run: npm run test:coverage
+
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@v2
+        continue-on-error: true
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          parallel: true
+          flag-name: ${{ matrix.node-version }}
 
   finish:
     needs: test
     if: ${{ always() }}
     runs-on: ubuntu-latest
     steps:
-    - name: Coveralls Finished
-      uses: coverallsapp/github-action@v2
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        parallel-finished: true
-        carryforward: "16,18,20,22,24"
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@v2
+        continue-on-error: true
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          parallel-finished: true
+          carryforward: "16,18,20,22,24"
