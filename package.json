@@ -40,7 +40,7 @@
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "2.5.9",
-    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/changelog": "^7.0.0",
     "@semantic-release/git": "^10.0.1",
     "jest": "^29.7.0",
     "semantic-release": "^25.0.1"
